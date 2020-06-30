@@ -12,4 +12,8 @@ public interface DishRepository {
     Dish get(int id, int res_id);
 
     List<Dish> getAll(int res_id);
+
+
+
+    List<Dish> getAll();
 }

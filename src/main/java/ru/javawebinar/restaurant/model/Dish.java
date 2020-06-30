@@ -8,7 +8,9 @@ import javax.validation.constraints.NotNull;
 
 @NamedQueries({
         @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=:id and m.restaurant.id=:res_id"),
-        @NamedQuery(name = Dish.GET_ALL, query = "SELECT m FROM Dish m WHERE m.restaurant.id=:res_id")
+//        @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:res_id")
+        @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d")
+
 })
 
 
@@ -32,7 +34,7 @@ public class Dish {
     @NotNull
     private Integer price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Restaurant restaurant;
 
     public int id() {

@@ -38,10 +38,10 @@ CREATE TABLE restaurants
 
 CREATE TABLE menu
 (
-    dish_id       INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    id       INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     restaurant_id INTEGER          NOT NULL,
     dish          VARCHAR          NOT NULL,
     price         DOUBLE PRECISION not null,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE
 );
-CREATE UNIQUE INDEX menu_unique_restaurant_idx ON menu (dish_id, restaurant_id);
+CREATE UNIQUE INDEX menu_unique_restaurant_idx ON menu (id, restaurant_id);

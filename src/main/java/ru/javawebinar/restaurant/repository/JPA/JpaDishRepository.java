@@ -47,4 +47,10 @@ public class JpaDishRepository implements DishRepository {
                 .setParameter("res_id", res_id)
                 .getResultList();
     }
+
+    @Override
+    public List<Dish> getAll() {
+        return manager.createNamedQuery(Dish.GET_ALL, Dish.class)
+                .getResultList();
+    }
 }

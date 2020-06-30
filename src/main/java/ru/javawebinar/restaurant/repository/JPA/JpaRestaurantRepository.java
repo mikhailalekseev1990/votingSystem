@@ -1,6 +1,7 @@
 package ru.javawebinar.restaurant.repository.JPA;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
 
@@ -13,6 +14,22 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 
     @PersistenceContext
     EntityManager manager;
+
+    @Override
+    @Transactional
+    public Restaurant save(Restaurant restaurant) {
+        if (restaurant.isNew()) {
+            manager.persist(restaurant);
+            return restaurant;
+        } else {
+            return manager.merge(restaurant);
+        }
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return manager.createNamedQuery(Restaurant.DELETE, Restaurant.class).executeUpdate() != 0;
+    }
 
     @Override
     public Restaurant get(int id) {
