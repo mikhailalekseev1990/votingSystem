@@ -1,6 +1,5 @@
 package ru.javawebinar.restaurant.web.servlet;
 
-import org.hsqldb.lib.StringUtil;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
@@ -15,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
+
 
 public class RestaurantServlet extends HttpServlet {
 
@@ -45,7 +44,7 @@ public class RestaurantServlet extends HttpServlet {
         switch (action == null ? "all" : action) {
             case "all":
             default:
-                request.setAttribute("restaurants", restaurantController.getAll());
+//                request.setAttribute("restaurants", restaurantController.getAll());
                 request.setAttribute("dishes", dishController.getAll());
                 request.getRequestDispatcher("/restaurants.jsp").forward(request, response);
                 break;

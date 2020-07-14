@@ -6,7 +6,6 @@ import ru.javawebinar.restaurant.repository.DishRepository;
 
 import java.util.List;
 
-@Controller
 public class DishController {
 
     private final DishRepository dishRepository;
