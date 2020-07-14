@@ -16,12 +16,12 @@ INSERT INTO user_roles (role, user_id)
 VALUES ('USER', 100000),
        ('ADMIN', 100001);
 
-INSERT INTO restaurants(name)
-VALUES ('Restaurant_1'),
-       ('Restaurant_2'),
-       ('Restaurant_3'),
-       ('Restaurant_4'),
-       ('Restaurant_5');
+INSERT INTO restaurants(name, user_id)
+VALUES ('Restaurant_1', 100000),
+       ('Restaurant_2', 100000),
+       ('Restaurant_3', 100001),
+       ('Restaurant_4', 100000),
+       ('Restaurant_5', 100001);
 
 INSERT INTO menu(dish, price, restaurant_id)
 VALUES ('dish_1_1', 1000, 100002),

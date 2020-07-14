@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
+@Transactional(readOnly = true)
 public class JpaDishRepository implements DishRepository {
 
     @PersistenceContext
@@ -20,19 +21,23 @@ public class JpaDishRepository implements DishRepository {
 
     @Override
     @Transactional
-    public Dish save(Dish dish, int res_id) {
-        dish.setRestaurant(manager.getReference(Restaurant.class, res_id));
+    public Dish save(Dish dish, int restId) {
+        dish.setRestaurant(manager.getReference(Restaurant.class, restId));
         if (dish.isNew()) {
             manager.persist(dish);
             return dish;
         } else {
-            return get(dish.getId(), res_id) == null ? null : manager.merge(dish);
+            return get(dish.getId(), restId) == null ? null : manager.merge(dish);
         }
     }
 
     @Override
-    public boolean delete(int id, int res_id) {
-        return false;
+    @Transactional
+    public boolean delete(int id, int restId) {
+        return manager.createNamedQuery(Dish.DELETE)
+                .setParameter("id", id)
+                .setParameter("restId", restId)
+                .executeUpdate() != 0;
     }
 
     @Override

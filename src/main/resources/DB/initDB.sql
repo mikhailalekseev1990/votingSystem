@@ -1,7 +1,8 @@
-DROP TABLE IF EXISTS user_roles;
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS restaurants;
+DROP TABLE IF EXISTS user_roles;
+DROP TABLE IF EXISTS users;
+
 DROP SEQUENCE IF EXISTS global_seq;
 
 
@@ -32,13 +33,16 @@ CREATE TABLE user_roles
 CREATE TABLE restaurants
 (
     id      INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    user_id INTEGER NOT NULL,
     name    VARCHAR NOT NULL,
-    voteSum INTEGER DEFAULT 0
+    voteSum INTEGER             DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE menu
 (
-    id       INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    id            INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     restaurant_id INTEGER          NOT NULL,
     dish          VARCHAR          NOT NULL,
     price         DOUBLE PRECISION not null,

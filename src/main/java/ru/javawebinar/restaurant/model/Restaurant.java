@@ -1,5 +1,7 @@
 package ru.javawebinar.restaurant.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.util.Assert;
 
 import javax.persistence.*;
@@ -7,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @NamedQueries({
-        @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id"),
-        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r")
+        @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:userId"),
+        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:userId")
 })
 
 @Entity
@@ -30,6 +32,11 @@ public class Restaurant {
     @NotNull
     private int voteSum;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @NotNull
+    private User user;
 
     public Restaurant(){
 
@@ -70,5 +77,13 @@ public class Restaurant {
 
     public void setVoteSum(int voteSum) {
         this.voteSum = voteSum;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

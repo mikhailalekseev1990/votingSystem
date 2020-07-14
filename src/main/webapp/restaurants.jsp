@@ -39,7 +39,7 @@
                             <th>Rest id</th>
                             <th>Dish</th>
                             <th>Price</th>
-                        </tr>
+                        </tr>cd
                         </thead>
 
                         <c:forEach items="${dishes}" var="dish">

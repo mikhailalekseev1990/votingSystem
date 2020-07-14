@@ -6,11 +6,11 @@ import ru.javawebinar.restaurant.model.Restaurant;
 import java.util.List;
 
 public interface RestaurantRepository {
-    Restaurant save(Restaurant restaurant);
+    Restaurant save(Restaurant restaurant, int userId);
 
-    boolean delete(int id);
+    boolean delete(int id,int userId);
 
-    Restaurant get(int id);
+    Restaurant get(int id, int userId);
 
-    List<Restaurant> getAll();
+    List<Restaurant> getAll(int userId);
 }
