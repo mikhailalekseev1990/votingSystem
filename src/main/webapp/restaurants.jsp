@@ -39,7 +39,7 @@
                             <th>Rest id</th>
                             <th>Dish</th>
                             <th>Price</th>
-                        </tr>cd
+                        </tr>
                         </thead>
 
                         <c:forEach items="${dishes}" var="dish">
@@ -59,8 +59,8 @@
                 </td>
 
                 <td>${restaurant.voteSum}</td>
-                <td><a href="restaurant?action=update&id=${restaurant.id}">Update</a></td>
-                <td><a href="restaurant?action=delete&id=${restaurant.id}">Delete</a></td>
+                <td><a href="restaurants?action=update&id=${restaurant.id}">Update</a></td>
+                <td><a href="restaurants?action=delete&id=${restaurant.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

@@ -3,6 +3,7 @@ package ru.javawebinar.restaurant.web.absractController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.repository.DishRepository;
@@ -13,7 +14,8 @@ import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
 
 import java.util.List;
 
-public abstract class AbstractRestaurantController {
+@Controller
+public class AbstractRestaurantController {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractRestaurantController.class);
 
     @Autowired
