@@ -4,7 +4,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.web.DishController;
 import ru.javawebinar.restaurant.web.absractController.AbstractDishController;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
@@ -14,10 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class RestaurantServlet extends HttpServlet {
@@ -70,7 +65,9 @@ public class RestaurantServlet extends HttpServlet {
                 request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
             }
             default -> {
+//                int restId = Integer.parseInt(request.getParameter("restId"));
                 request.setAttribute("restaurants", restaurantController.getAll());
+//                request.setAttribute("dishes", restaurantController.get(100_003).getDishes());
                 request.getRequestDispatcher("/restaurants.jsp").forward(request, response);
             }
         }

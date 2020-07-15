@@ -7,6 +7,7 @@ import org.springframework.util.Assert;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:userId"),
@@ -37,6 +38,10 @@ public class Restaurant {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     private User user;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OrderBy("id DESC")
+    private List<Dish> dishes;
 
     public Restaurant(){
 
@@ -85,5 +90,13 @@ public class Restaurant {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 }
