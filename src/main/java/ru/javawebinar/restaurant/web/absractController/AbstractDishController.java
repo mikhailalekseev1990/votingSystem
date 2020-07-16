@@ -13,7 +13,7 @@ import ru.javawebinar.restaurant.web.SecurityUtil;
 
 import java.util.List;
 
-import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
+import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
 
 @Controller
 public  class AbstractDishController {
@@ -34,12 +34,14 @@ public  class AbstractDishController {
 
     public Dish create(Dish dish, int restId) {
         LOG.info("create dish for restaurant {}",  restId);
+        checkNew(dish);
         Assert.notNull(dish, "dish must not be null");
         return dishRepository.save(dish, restId);
     }
 
     public void update(Dish dish, int id,int restId) {
         int userId = SecurityUtil.authUserId();
+        assureIdConsistent(dish, id);
         LOG.info("update dish {} for restaurant {}", id, restId);
         Assert.notNull(dish, "dish must not be null");
         checkNotFoundWithId(dishRepository.save(dish, restId), dish.id());

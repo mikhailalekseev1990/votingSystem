@@ -15,6 +15,7 @@
         <servlet-name>userServlet</servlet-name>
         <url-pattern>/users</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>restaurantServlet</servlet-name>
         <servlet-class>ru.javawebinar.restaurant.web.servlet.RestaurantServlet</servlet-class>
@@ -25,6 +26,15 @@
         <url-pattern>/restaurants</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>dishServlet</servlet-name>
+        <servlet-class>ru.javawebinar.restaurant.web.servlet.DishServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dishServlet</servlet-name>
+        <url-pattern>/dishes</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>

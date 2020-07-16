@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.repository.DishRepository;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
 import ru.javawebinar.restaurant.web.SecurityUtil;
 
-import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
-
 import java.util.List;
+
+import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
 
 @Controller
 public class AbstractRestaurantController {
@@ -35,6 +34,7 @@ public class AbstractRestaurantController {
 
     public Restaurant create(Restaurant restaurant) {
         int userId = SecurityUtil.authUserId();
+        checkNew(restaurant);
         LOG.info("create restaurant for user {}", userId);
         Assert.notNull(restaurant, "restaurant must not be null");
         return restaurantRepository.save(restaurant, userId);
@@ -42,6 +42,7 @@ public class AbstractRestaurantController {
 
     public void update(Restaurant restaurant, int id) {
         int userId = SecurityUtil.authUserId();
+        assureIdConsistent(restaurant, id);
         LOG.info("update restaurant {} for user {}", id, userId);
         Assert.notNull(restaurant, "restaurant must not be null");
         checkNotFoundWithId(restaurantRepository.save(restaurant, userId), restaurant.id());

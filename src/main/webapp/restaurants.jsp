@@ -27,7 +27,7 @@
         </thead>
         <c:forEach items="${restaurants}" var="restaurant">
             <jsp:useBean id="restaurant" type="ru.javawebinar.restaurant.model.Restaurant"/>
-            <input type="hidden" name="res_id" value="${restaurant.id}">
+            <input type="hidden" name="restId" value="${restaurant.id}">
             <tr>
                 <td>${restaurant.id}</td>
                 <td>${restaurant.name}</td>
@@ -47,7 +47,7 @@
                                 <p>
                                     <tr>
                                         <td>${dish.id}</td>
-                                        <td>${dish.restaurant.name}</td>
+                                        <td>${dish.restaurant.id}</td>
                                         <td>${dish.dish}</td>
                                         <td>${dish.price}</td>
                                     </tr>
@@ -58,8 +58,8 @@
                 </td>
 
                 <td>${restaurant.voteSum}</td>
-                <td><a href="restaurants?action=update&id=${restaurant.id}">Update</a></td>
-                <td><a href="restaurants?action=delete&id=${restaurant.id}">Delete</a></td>
+                <td><a href="restaurants?action=update&restId=${restaurant.id}">Update</a></td>
+                <td><a href="restaurants?action=delete&restId=${restaurant.id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

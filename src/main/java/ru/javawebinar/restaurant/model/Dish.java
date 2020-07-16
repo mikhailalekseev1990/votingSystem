@@ -9,8 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @NamedQueries({
-        @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=:id and m.restaurant.id=:restId"),
-        @NamedQuery(name = Dish.GET_ALL_FOR_RESTAURANT, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:restIid"),
+        @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=?1 and m.restaurant.id=?2"),
+        @NamedQuery(name = Dish.GET_ALL_FOR_RESTAURANT, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:restId"),
         @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d")
 
 })
@@ -37,11 +37,19 @@ public class Dish {
     @NotNull
     private Integer price;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     private Restaurant restaurant;
+
+    public Dish() {
+    }
+
+    public Dish(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public int id() {
         Assert.notNull(id, "Entity must has id");

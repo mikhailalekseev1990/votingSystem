@@ -11,7 +11,7 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:userId"),
-        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:userId")
+        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:userId ORDER BY r.id")
 })
 
 @Entity
@@ -40,7 +40,7 @@ public class Restaurant {
     private User user;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
-    @OrderBy("id DESC")
+    @OrderBy("id")
     private List<Dish> dishes;
 
     public Restaurant(){

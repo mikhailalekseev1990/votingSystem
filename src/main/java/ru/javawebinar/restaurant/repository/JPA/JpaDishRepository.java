@@ -35,21 +35,21 @@ public class JpaDishRepository implements DishRepository {
     @Transactional
     public boolean delete(int id, int restId) {
         return manager.createNamedQuery(Dish.DELETE)
-                .setParameter("id", id)
-                .setParameter("restId", restId)
+                .setParameter(1, id)
+                .setParameter(2, restId)
                 .executeUpdate() != 0;
     }
 
     @Override
-    public Dish get(int id, int res_id) {
+    public Dish get(int id, int restId) {
         Dish dish = manager.find(Dish.class, id);
-        return dish != null && dish.getRestaurant().getId() == res_id ? dish : null;
+        return dish != null && dish.getRestaurant().getId() == restId ? dish : null;
     }
 
     @Override
-    public List<Dish> getAll(int res_id) {
-        return manager.createNamedQuery(Dish.GET_ALL, Dish.class)
-                .setParameter("res_id", res_id)
+    public List<Dish> getAll(int restId) {
+        return manager.createNamedQuery(Dish.GET_ALL_FOR_RESTAURANT, Dish.class)
+                .setParameter("restId", restId)
                 .getResultList();
     }
 

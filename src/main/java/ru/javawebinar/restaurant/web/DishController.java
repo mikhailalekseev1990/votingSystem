@@ -14,8 +14,8 @@ public class DishController {
         this.dishRepository = dishRepository;
     }
 
-    public List<Dish> getAllById(int res_id) {
-        return dishRepository.getAll(res_id);
+    public List<Dish> getAllById(int restId) {
+        return dishRepository.getAll(restId);
     }
 
     public List<Dish> getAll() {

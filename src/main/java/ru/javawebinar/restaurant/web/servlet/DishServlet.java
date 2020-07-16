@@ -3,9 +3,8 @@ package ru.javawebinar.restaurant.web.servlet;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
-import ru.javawebinar.restaurant.model.Restaurant;
+import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.web.absractController.AbstractDishController;
-import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -13,19 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 
-public class RestaurantServlet extends HttpServlet {
-
+public class DishServlet extends HttpServlet {
     ConfigurableApplicationContext springContext;
-    AbstractRestaurantController restaurantController;
     AbstractDishController dishController;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         springContext = new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml");
-        restaurantController = springContext.getBean(AbstractRestaurantController.class);
         dishController = springContext.getBean(AbstractDishController.class);
     }
 
@@ -38,14 +35,14 @@ public class RestaurantServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        Restaurant restaurant = new Restaurant(request.getParameter("name"));
-        String restId = request.getParameter("restId");
-        if (StringUtils.isEmpty(restId)) {
-            restaurantController.create(restaurant);
+        Dish dish = new Dish(request.getParameter("nameDish"), Integer.parseInt(request.getParameter("price")));
+        String dishId = request.getParameter("dishId");
+        if (StringUtils.isEmpty(dishId)) {
+            dishController.create(dish, getRestId(request));
         } else {
-            restaurantController.update(restaurant, getRestId(request));
+            dishController.update(dish, getDishId(request), getRestId(request));
         }
-        response.sendRedirect("restaurants");
+        response.sendRedirect("restaurants?action=update&restId="+getRestId(request));
     }
 
     @Override
@@ -54,27 +51,31 @@ public class RestaurantServlet extends HttpServlet {
 
         switch (action == null ? "all" : action) {
             case "delete" -> {
-                int id = getRestId(request);
-                restaurantController.delete(id);
-                response.sendRedirect("restaurants");
+                int dishId = getDishId(request);
+                int restId = getRestId(request);
+                dishController.delete(dishId, restId);
+                response.sendRedirect("restaurants?action=update&restId="+restId);
             }
             case "create", "update" -> {
-                final Restaurant restaurant = "create".equals(action) ?
-                        new Restaurant("") :
-                        restaurantController.get(getRestId(request));
-                request.setAttribute("restaurant", restaurant);
-                request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
+                final Dish dish = "create".equals(action) ?
+                        new Dish("", 0) :
+                        dishController.get(getDishId(request), getRestId(request));
+                request.setAttribute("restaurantId", getRestId(request));
+                request.setAttribute("dish", dish);
+                request.getRequestDispatcher("/dishes.jsp").forward(request, response);
             }
             default -> {
-//                int restId = Integer.parseInt(request.getParameter("restId"));
-                request.setAttribute("restaurants", restaurantController.getAll());
-//                request.setAttribute("dishes", restaurantController.get(100_003).getDishes());
-                request.getRequestDispatcher("/restaurants.jsp").forward(request, response);
+                request.setAttribute("restaurantForm", dishController.getAll(getRestId(request)));
+                request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
             }
         }
 
     }
 
+    private int getDishId(HttpServletRequest request) {
+        String paramId = Objects.requireNonNull(request.getParameter("dishId"));
+        return Integer.parseInt(paramId);
+    }
     private int getRestId(HttpServletRequest request) {
         String paramId = Objects.requireNonNull(request.getParameter("restId"));
         return Integer.parseInt(paramId);
