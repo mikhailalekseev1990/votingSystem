@@ -32,6 +32,8 @@
                 <td>${restaurant.id}</td>
                 <td>${restaurant.name}</td>
                 <td>
+                    <a href="dishes?dish_action=create&restId=${restaurant.id}">Add Dish</a>
+
                     <table border="1" cellpadding="8" cellspacing="0">
                         <thead>
                         <tr>
@@ -50,6 +52,8 @@
                                         <td>${dish.restaurant.id}</td>
                                         <td>${dish.dish}</td>
                                         <td>${dish.price}</td>
+                                        <td><a href="dishes?dish_action=update&dishId=${dish.id}&restId=${restaurant.id}">Update</a></td>
+                                        <td><a href="dishes?dish_action=delete&dishId=${dish.id}&restId=${restaurant.id}">Delete</a></td>
                                     </tr>
                                 </p>
 

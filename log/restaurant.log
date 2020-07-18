@@ -1053,3 +1053,112 @@
 2020-07-16 19:03:59,580 INFO  r.j.r.w.a.AbstractRestaurantController.get:25 - get restaurant 100003 for user 100000
 2020-07-16 19:04:08,086 INFO  r.j.r.web.absractController.AbstractDishController.create:36 - create dish for restaurant 100003
 2020-07-16 19:04:08,137 INFO  r.j.r.w.a.AbstractRestaurantController.get:25 - get restaurant 100003 for user 100000
+2020-07-16 19:17:22,699 INFO  r.j.r.w.a.AbstractRestaurantController.get:25 - get restaurant 100003 for user 100000
+2020-07-16 19:22:31,193 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-16 19:22:31,238 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-17 11:17:49,061 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-17 11:17:49,322 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-17 11:17:49,629 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-17 11:17:50,438 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-17 11:17:51,263 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-17 11:17:53,200 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-17 11:17:53,427 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-17 11:17:54,057 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-17 11:17:54,189 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-17 11:17:54,330 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-17 11:17:54,367 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-17 11:17:57,570 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-17 11:18:00,727 INFO  r.j.r.w.a.AbstractRestaurantController.get:25 - get restaurant 100002 for user 100000
+2020-07-17 11:18:02,845 INFO  r.j.r.web.absractController.AbstractDishController.get:26 - get dish 100008 for restaurant 100002
+2020-07-17 11:18:41,942 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-17 11:18:42,036 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:33:42,174 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:33:42,308 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-18 11:33:42,721 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-18 11:33:43,803 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:33:44,746 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-18 11:33:45,928 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:33:46,149 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:33:46,785 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:33:46,835 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:33:46,975 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:33:46,997 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:39:28,105 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:41:08,999 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:41:09,062 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:41:12,845 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:41:13,085 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-18 11:41:13,374 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-18 11:41:13,915 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:41:14,711 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-18 11:41:15,990 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:41:16,196 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:41:16,719 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:41:16,758 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:41:17,060 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:41:17,153 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:43:13,439 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:43:25,460 INFO  r.j.r.web.absractController.AbstractDishController.getAll:52 - getAll dish for restaurant 100007
+2020-07-18 11:44:20,586 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:44:20,666 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:44:24,599 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:44:24,867 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-18 11:44:25,265 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-18 11:44:25,789 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:44:26,658 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-18 11:44:29,026 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:44:29,368 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:44:29,918 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:44:29,962 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:44:30,103 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:44:30,124 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:47:34,934 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:47:35,021 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:47:38,839 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:47:39,173 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-18 11:47:39,443 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-18 11:47:39,819 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:47:40,621 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-18 11:47:42,155 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:47:42,302 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:47:42,659 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:47:42,705 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:47:42,849 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:47:42,871 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:51:18,805 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:54:21,636 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:54:21,854 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.destroy:598 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:54:27,045 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:54:27,359 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-18 11:54:27,842 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-18 11:54:28,669 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:54:29,607 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-18 11:54:30,856 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:54:31,216 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:54:31,681 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-18 11:54:31,759 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-18 11:54:32,012 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-18 11:54:32,046 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-18 11:54:47,081 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:54:49,790 INFO  r.j.r.web.absractController.AbstractDishController.delete:31 - delete dish 100008 for restaurant 100008
+2020-07-18 11:56:41,912 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:56:45,570 INFO  r.j.r.w.a.AbstractRestaurantController.get:25 - get restaurant 100002 for user 100000
+2020-07-18 11:56:49,114 INFO  r.j.r.w.a.AbstractRestaurantController.update:46 - update restaurant 100002 for user 100000
+2020-07-18 11:56:49,296 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:57:00,449 INFO  r.j.r.web.absractController.AbstractDishController.create:36 - create dish for restaurant 100002
+2020-07-18 11:57:00,542 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 11:57:03,436 INFO  r.j.r.web.absractController.AbstractDishController.get:26 - get dish 100008 for restaurant 100008
+2020-07-18 11:57:14,929 INFO  r.j.r.web.absractController.AbstractDishController.get:26 - get dish 100007 for restaurant 100007
+2020-07-18 12:00:16,376 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 12:00:18,405 INFO  r.j.r.web.absractController.AbstractDishController.delete:31 - delete dish 100008 for restaurant 100002
+2020-07-18 12:00:18,481 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 12:00:19,960 INFO  r.j.r.web.absractController.AbstractDishController.get:26 - get dish 100007 for restaurant 100002
+2020-07-18 12:00:25,337 INFO  r.j.r.web.absractController.AbstractDishController.update:45 - update dish 100007 for restaurant 100002
+2020-07-18 12:00:25,402 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 12:00:31,328 INFO  r.j.r.w.a.AbstractRestaurantController.delete:31 - delete restaurant 100002 for user 100000
+2020-07-18 12:00:31,373 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 12:00:37,810 INFO  r.j.r.web.absractController.AbstractDishController.create:36 - create dish for restaurant 100005
+2020-07-18 12:00:37,859 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000
+2020-07-18 12:00:44,264 INFO  r.j.r.web.absractController.AbstractDishController.get:26 - get dish 100023 for restaurant 100005
+2020-07-18 12:00:47,989 INFO  r.j.r.web.absractController.AbstractDishController.update:45 - update dish 100023 for restaurant 100005
+2020-07-18 12:00:48,037 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:53 - getAll restaurants for user 100000

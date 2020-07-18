@@ -42,19 +42,19 @@ public class DishServlet extends HttpServlet {
         } else {
             dishController.update(dish, getDishId(request), getRestId(request));
         }
-        response.sendRedirect("restaurants?action=update&restId="+getRestId(request));
+        response.sendRedirect("restaurants");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
+        String action = request.getParameter("dish_action");
 
-        switch (action == null ? "all" : action) {
+        switch (action) {
             case "delete" -> {
                 int dishId = getDishId(request);
                 int restId = getRestId(request);
                 dishController.delete(dishId, restId);
-                response.sendRedirect("restaurants?action=update&restId="+restId);
+                response.sendRedirect("restaurants");
             }
             case "create", "update" -> {
                 final Dish dish = "create".equals(action) ?
@@ -64,10 +64,10 @@ public class DishServlet extends HttpServlet {
                 request.setAttribute("dish", dish);
                 request.getRequestDispatcher("/dishes.jsp").forward(request, response);
             }
-            default -> {
-                request.setAttribute("restaurantForm", dishController.getAll(getRestId(request)));
-                request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
-            }
+//            default -> {
+//                request.setAttribute("restaurants", dishController.getAll(getRestId(request)));
+//                request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
+//            }
         }
 
     }
