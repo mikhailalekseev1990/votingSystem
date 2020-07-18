@@ -62,7 +62,7 @@ public class DishServlet extends HttpServlet {
                         dishController.get(getDishId(request), getRestId(request));
                 request.setAttribute("restaurantId", getRestId(request));
                 request.setAttribute("dish", dish);
-                request.getRequestDispatcher("/dishes.jsp").forward(request, response);
+                request.getRequestDispatcher("/dishForm.jsp").forward(request, response);
             }
 //            default -> {
 //                request.setAttribute("restaurants", dishController.getAll(getRestId(request)));
