@@ -19,36 +19,36 @@ public abstract class AbstractRestaurantController {
     RestaurantRepository restaurantRepository;
 
     public Restaurant get(int id) {
-        int userId = SecurityUtil.authUserId();
-        LOG.info("get restaurant {} for user {}", id, userId);
-        return checkNotFoundWithId(restaurantRepository.get(id, userId), id);
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("get restaurant {} for user {}", id, u_id);
+        return checkNotFoundWithId(restaurantRepository.get(id, u_id), id);
     }
 
     public void delete(int id) {
-        int userId = SecurityUtil.authUserId();
-        LOG.info("delete restaurant {} for user {}", id, userId);
-        checkNotFoundWithId(restaurantRepository.delete(id, userId), id);
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("delete restaurant {} for user {}", id, u_id);
+        checkNotFoundWithId(restaurantRepository.delete(id, u_id), id);
     }
 
     public Restaurant create(Restaurant restaurant) {
-        int userId = SecurityUtil.authUserId();
+        int u_id = SecurityUtil.authu_id();
         checkNew(restaurant);
-        LOG.info("create restaurant for user {}", userId);
+        LOG.info("create restaurant for user {}", u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
-        return restaurantRepository.save(restaurant, userId);
+        return restaurantRepository.save(restaurant, u_id);
     }
 
     public void update(Restaurant restaurant, int id) {
-        int userId = SecurityUtil.authUserId();
+        int u_id = SecurityUtil.authu_id();
         assureIdConsistent(restaurant, id);
-        LOG.info("update restaurant {} for user {}", id, userId);
+        LOG.info("update restaurant {} for user {}", id, u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
-        checkNotFoundWithId(restaurantRepository.save(restaurant, userId), restaurant.id());
+        checkNotFoundWithId(restaurantRepository.save(restaurant, u_id), restaurant.id());
     }
 
     public List<Restaurant> getAll() {
-        int userId = SecurityUtil.authUserId();
-        LOG.info("getAll restaurants for user {}", userId);
-        return restaurantRepository.getAll(userId);
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("getAll restaurants for user {}", u_id);
+        return restaurantRepository.getAll(u_id);
     }
 }

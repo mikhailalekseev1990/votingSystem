@@ -39,11 +39,11 @@ public class RestaurantServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         Restaurant restaurant = new Restaurant(request.getParameter("name"));
-        String restId = request.getParameter("restId");
-        if (StringUtils.isEmpty(restId)) {
+        String r_id = request.getParameter("r_id");
+        if (StringUtils.isEmpty(r_id)) {
             restaurantController.create(restaurant);
         } else {
-            restaurantController.update(restaurant, getRestId(request));
+            restaurantController.update(restaurant, getRestaurantId(request));
         }
         response.sendRedirect("restaurants");
     }
@@ -54,19 +54,19 @@ public class RestaurantServlet extends HttpServlet {
 
         switch (action == null ? "all" : action) {
             case "delete" -> {
-                int id = getRestId(request);
+                int id = getRestaurantId(request);
                 restaurantController.delete(id);
                 response.sendRedirect("restaurants");
             }
             case "create", "update" -> {
                 final Restaurant restaurant = "create".equals(action) ?
                         new Restaurant("") :
-                        restaurantController.get(getRestId(request));
+                        restaurantController.get(getRestaurantId(request));
                 request.setAttribute("restaurant", restaurant);
                 request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
             }
             default -> {
-//                int restId = Integer.parseInt(request.getParameter("restId"));
+//                int r_id = Integer.parseInt(request.getParameter("r_id"));
                 request.setAttribute("restaurants", restaurantController.getAll());
 //                request.setAttribute("dishes", restaurantController.get(100_003).getDishes());
                 request.getRequestDispatcher("/restaurants.jsp").forward(request, response);
@@ -75,8 +75,8 @@ public class RestaurantServlet extends HttpServlet {
 
     }
 
-    private int getRestId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("restId"));
+    private int getRestaurantId(HttpServletRequest request) {
+        String paramId = Objects.requireNonNull(request.getParameter("r_id"));
         return Integer.parseInt(paramId);
     }
 }

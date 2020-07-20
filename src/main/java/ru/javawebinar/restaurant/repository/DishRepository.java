@@ -5,13 +5,13 @@ import ru.javawebinar.restaurant.model.Dish;
 import java.util.List;
 
 public interface DishRepository {
-    Dish save(Dish dish, int restId);
+    Dish save(Dish dish, int r_id);
 
-    boolean delete(int id, int restId);
+    boolean delete(int id, int r_id);
 
-    Dish get(int id, int restId);
+    Dish get(int id, int r_id);
 
-    List<Dish> getAll(int restId);
+    List<Dish> getAll(int r_id);
 
     List<Dish> getAll();
 }

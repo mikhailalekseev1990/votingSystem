@@ -19,10 +19,10 @@
     <jsp:useBean id="dish" class="ru.javawebinar.restaurant.model.Dish" scope="request"/>
     <c:set var="restaurantId" value='${requestScope["restaurantId"]}' scope="request"/>
     <form method="post" action="dish">
-        <dd><input type="hidden" name="dishId" value="${dish.id}"></dd>
-        <dd><input type="hidden" name="restId" value="${restaurantId}"></dd>
-        <div>restId ${restaurantId}</div>
-        <div>dishId ${dish.id}</div>
+        <dd><input type="hidden" name="d_id" value="${dish.id}"></dd>
+        <dd><input type="hidden" name="r_id" value="${restaurantId}"></dd>
+        <div>r_id ${restaurantId}</div>
+        <div>d_id ${dish.id}</div>
         <dl>
             <dt>Dish:</dt>
             <dd><input type="text" value="${dish.name}" name="dish_name" required></dd>

@@ -17,8 +17,8 @@
     <h2>${param.action == 'create' ? 'Create restaurant' : 'Edit restaurant'}</h2>
     <jsp:useBean id="restaurant" class="ru.javawebinar.restaurant.model.Restaurant" scope="request"/>
     <form method="post" action="restaurants">
-        <dd><input type="hidden" name="restId" value="${restaurant.id}"></dd>
-        <div>restId: ${restaurant.id == null ? "null" : restaurant.id}</div>
+        <dd><input type="hidden" name="r_id" value="${restaurant.id}"></dd>
+        <div>r_id: ${restaurant.id == null ? "null" : restaurant.id}</div>
         <dl>
             <dt>Restaurant:</dt>
             <dd><input type="text" value="${restaurant.name}" name="restaurant_name" required></dd>

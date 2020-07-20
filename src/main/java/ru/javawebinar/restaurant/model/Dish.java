@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @NamedQueries({
         @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=?1 and m.restaurant.id=?2"),
-        @NamedQuery(name = Dish.GET_ALL_FOR_RESTAURANT, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:restId"),
+        @NamedQuery(name = Dish.GET_ALL_FOR_RESTAURANT, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:r_id"),
         @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d")
 
 })

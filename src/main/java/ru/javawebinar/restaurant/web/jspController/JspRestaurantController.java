@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.web.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ public class JspRestaurantController extends AbstractRestaurantController {
 
     @GetMapping("/delete")
     String delete(HttpServletRequest request) {
-        super.delete(getRestId(request));
+        super.delete(getRestaurantId(request));
         return "redirect:/restaurants";
     }
 
@@ -33,7 +32,7 @@ public class JspRestaurantController extends AbstractRestaurantController {
 
     @GetMapping("/update")
     String update(Model model, HttpServletRequest request) {
-        Restaurant restaurant = super.get(getRestId(request));
+        Restaurant restaurant = super.get(getRestaurantId(request));
         model.addAttribute("restaurant", restaurant);
         return "restaurantForm";
     }
@@ -41,11 +40,11 @@ public class JspRestaurantController extends AbstractRestaurantController {
     @PostMapping
     public String save(HttpServletRequest request) {
         Restaurant restaurant = new Restaurant(request.getParameter("restaurant_name"));
-        String restId = request.getParameter("restId");
-        if (StringUtils.isEmpty(restId)) {
+        String r_id = request.getParameter("r_id");
+        if (StringUtils.isEmpty(r_id)) {
             super.create(restaurant);
         } else {
-            super.update(restaurant, getRestId(request));
+            super.update(restaurant, getRestaurantId(request));
         }
         return "redirect:restaurants";
     }
@@ -57,8 +56,8 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "restaurants";
     }
 
-    private int getRestId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("restId"));
+    private int getRestaurantId(HttpServletRequest request) {
+        String paramId = Objects.requireNonNull(request.getParameter("r_id"));
         return Integer.parseInt(paramId);
     }
 }

@@ -18,35 +18,35 @@ public abstract class AbstractDishController {
     @Autowired
     DishRepository dishRepository;
 
-    public Dish get(int id, int restId) {
-        LOG.info("get dish {} for restaurant {}", id, restId);
-        return checkNotFoundWithId(dishRepository.get(id, restId), id);
+    public Dish get(int id, int r_id) {
+        LOG.info("get dish {} for restaurant {}", id, r_id);
+        return checkNotFoundWithId(dishRepository.get(id, r_id), id);
     }
 
-    public void delete(int id, int restId) {
-        LOG.info("delete dish {} for restaurant {}", id, restId);
-        checkNotFoundWithId(dishRepository.delete(id, restId), id);
+    public void delete(int id, int r_id) {
+        LOG.info("delete dish {} for restaurant {}", id, r_id);
+        checkNotFoundWithId(dishRepository.delete(id, r_id), id);
     }
 
-    public Dish create(Dish dish, int restId) {
-        LOG.info("create dish for restaurant {}", restId);
+    public Dish create(Dish dish, int r_id) {
+        LOG.info("create dish for restaurant {}", r_id);
         checkNew(dish);
         Assert.notNull(dish, "dish must not be null");
-        return dishRepository.save(dish, restId);
+        return dishRepository.save(dish, r_id);
     }
 
-    public void update(Dish dish, int id, int restId) {
-        int userId = SecurityUtil.authUserId();
+    public void update(Dish dish, int id, int r_id) {
+        int u_id = SecurityUtil.authu_id();
         assureIdConsistent(dish, id);
-        LOG.info("update dish {} for restaurant {}", id, restId);
+        LOG.info("update dish {} for restaurant {}", id, r_id);
         Assert.notNull(dish, "dish must not be null");
-        checkNotFoundWithId(dishRepository.save(dish, restId), dish.id());
+        checkNotFoundWithId(dishRepository.save(dish, r_id), dish.id());
     }
 
-    public List<Dish> getAll(int restId) {
-        int userId = SecurityUtil.authUserId();
-        LOG.info("getAll dish for restaurant {}", restId);
-        return dishRepository.getAll(userId);
+    public List<Dish> getAll(int r_id) {
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("getAll dish for restaurant {}", r_id);
+        return dishRepository.getAll(u_id);
     }
 
 }

@@ -19,12 +19,12 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 
     @Override
     @Transactional
-    public Restaurant save(Restaurant restaurant, int userId) {
-        restaurant.setUser(manager.getReference(User.class, userId));
+    public Restaurant save(Restaurant restaurant, int u_id) {
+        restaurant.setUser(manager.getReference(User.class, u_id));
         if (restaurant.isNew()) {
             manager.persist(restaurant);
             return restaurant;
-        } else if (get(restaurant.id(), userId) == null) {
+        } else if (get(restaurant.id(), u_id) == null) {
             return null;
         }
         return manager.merge(restaurant);
@@ -32,23 +32,23 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 
     @Override
     @Transactional
-    public boolean delete(int id, int userId) {
+    public boolean delete(int id, int u_id) {
         return manager.createNamedQuery(Restaurant.DELETE)
                 .setParameter("id", id)
-                .setParameter("userId", userId)
+                .setParameter("u_id", u_id)
                 .executeUpdate() != 0;
     }
 
     @Override
-    public Restaurant get(int id, int userId) {
+    public Restaurant get(int id, int u_id) {
         Restaurant restaurant = manager.find(Restaurant.class, id);
-        return restaurant != null && restaurant.getUser().getId() == userId ? restaurant : null;
+        return restaurant != null && restaurant.getUser().getId() == u_id ? restaurant : null;
     }
 
     @Override
-    public List<Restaurant> getAll(int userId) {
+    public List<Restaurant> getAll(int u_id) {
         return manager.createNamedQuery(Restaurant.GET_ALL, Restaurant.class)
-                .setParameter("userId", userId)
+                .setParameter("u_id", u_id)
                 .getResultList();
     }
 }

@@ -32,12 +32,12 @@
         </thead>
         <c:forEach items="${restaurants}" var="restaurant">
             <jsp:useBean id="restaurant" type="ru.javawebinar.restaurant.model.Restaurant"/>
-            <input type="hidden" name="restId" value="${restaurant.id}">
+            <input type="hidden" name="r_id" value="${restaurant.id}">
             <tr>
                 <td>${restaurant.id}</td>
                 <td>${restaurant.name}</td>
                 <td>
-                    <a href="dish/dish_create?restId=${restaurant.id}">Add Dish</a>
+                    <a href="dish/dish_create?r_id=${restaurant.id}">Add Dish</a>
 
                     <table border="1" cellpadding="8" cellspacing="0">
                         <thead>
@@ -57,9 +57,9 @@
                                     <td>${dish.restaurant.id}</td>
                                     <td>${dish.dish}</td>
                                     <td>${dish.price}</td>
-                                    <td><a href="dish/dish_update?dishId=${dish.id}&restId=${restaurant.id}">Update</a>
+                                    <td><a href="dish/dish_update?d_id=${dish.id}&r_id=${restaurant.id}">Update</a>
                                     </td>
-                                    <td><a href="dish/dish_delete?dishId=${dish.id}&restId=${restaurant.id}">Delete</a>
+                                    <td><a href="dish/dish_delete?d_id=${dish.id}&r_id=${restaurant.id}">Delete</a>
                                     </td>
                                 </tr>
                             </p>
@@ -69,8 +69,9 @@
                 </td>
 
                 <td>${restaurant.voteSum}</td>
-                <td><a href="restaurants/update?restId=${restaurant.id}">Update</a></td>
-                <td><a href="restaurants/delete?restId=${restaurant.id}">Delete</a></td>
+                <td><a href="restaurants/update?r_id=${restaurant.id}">Update</a></td>
+                <td><a href="restaurants/delete?r_id=${restaurant.id}">Delete</a></td>
+                <td><a href="restaurants/vote?r_id=${restaurant.id}"> Vote </a></td>
             </tr>
         </c:forEach>
     </table>

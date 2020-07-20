@@ -21,35 +21,35 @@ public class JpaDishRepository implements DishRepository {
 
     @Override
     @Transactional
-    public Dish save(Dish dish, int restId) {
-        dish.setRestaurant(manager.getReference(Restaurant.class, restId));
+    public Dish save(Dish dish, int r_id) {
+        dish.setRestaurant(manager.getReference(Restaurant.class, r_id));
         if (dish.isNew()) {
             manager.persist(dish);
             return dish;
         } else {
-            return get(dish.getId(), restId) == null ? null : manager.merge(dish);
+            return get(dish.getId(), r_id) == null ? null : manager.merge(dish);
         }
     }
 
     @Override
     @Transactional
-    public boolean delete(int id, int restId) {
+    public boolean delete(int id, int r_id) {
         return manager.createNamedQuery(Dish.DELETE)
                 .setParameter(1, id)
-                .setParameter(2, restId)
+                .setParameter(2, r_id)
                 .executeUpdate() != 0;
     }
 
     @Override
-    public Dish get(int id, int restId) {
+    public Dish get(int id, int r_id) {
         Dish dish = manager.find(Dish.class, id);
-        return dish != null && dish.getRestaurant().getId() == restId ? dish : null;
+        return dish != null && dish.getRestaurant().getId() == r_id ? dish : null;
     }
 
     @Override
-    public List<Dish> getAll(int restId) {
+    public List<Dish> getAll(int r_id) {
         return manager.createNamedQuery(Dish.GET_ALL_FOR_RESTAURANT, Dish.class)
-                .setParameter("restId", restId)
+                .setParameter("r_id", r_id)
                 .getResultList();
     }
 

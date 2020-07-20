@@ -9,11 +9,11 @@ public class SecurityUtil {
     private SecurityUtil() {
     }
 
-    public static int authUserId() {
+    public static int authu_id() {
         return id;
     }
 
-    public static void setAuthUserId(int id) {
+    public static void setAuthu_id(int id) {
         ru.javawebinar.restaurant.web.SecurityUtil.id = id;
     }
 

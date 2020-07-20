@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Objects;
 
 public class DishServlet extends HttpServlet {
@@ -36,11 +35,11 @@ public class DishServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         Dish dish = new Dish(request.getParameter("nameDish"), Integer.parseInt(request.getParameter("price")));
-        String dishId = request.getParameter("dishId");
-        if (StringUtils.isEmpty(dishId)) {
-            dishController.create(dish, getRestId(request));
+        String d_id = request.getParameter("d_id");
+        if (StringUtils.isEmpty(d_id)) {
+            dishController.create(dish, getRestaurantId(request));
         } else {
-            dishController.update(dish, getDishId(request), getRestId(request));
+            dishController.update(dish, getDishId(request), getRestaurantId(request));
         }
         response.sendRedirect("restaurants");
     }
@@ -51,21 +50,21 @@ public class DishServlet extends HttpServlet {
 
         switch (action) {
             case "delete" -> {
-                int dishId = getDishId(request);
-                int restId = getRestId(request);
-                dishController.delete(dishId, restId);
+                int d_id = getDishId(request);
+                int r_id = getRestaurantId(request);
+                dishController.delete(d_id, r_id);
                 response.sendRedirect("restaurants");
             }
             case "create", "update" -> {
                 final Dish dish = "create".equals(action) ?
                         new Dish("", 0) :
-                        dishController.get(getDishId(request), getRestId(request));
-                request.setAttribute("restaurantId", getRestId(request));
+                        dishController.get(getDishId(request), getRestaurantId(request));
+                request.setAttribute("restaurantId", getRestaurantId(request));
                 request.setAttribute("dish", dish);
                 request.getRequestDispatcher("/dishForm.jsp").forward(request, response);
             }
 //            default -> {
-//                request.setAttribute("restaurants", dishController.getAll(getRestId(request)));
+//                request.setAttribute("restaurants", dishController.getAll(getr_id(request)));
 //                request.getRequestDispatcher("/restaurantForm.jsp").forward(request, response);
 //            }
         }
@@ -73,11 +72,11 @@ public class DishServlet extends HttpServlet {
     }
 
     private int getDishId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("dishId"));
+        String paramId = Objects.requireNonNull(request.getParameter("d_id"));
         return Integer.parseInt(paramId);
     }
-    private int getRestId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("restId"));
+    private int getRestaurantId(HttpServletRequest request) {
+        String paramId = Objects.requireNonNull(request.getParameter("r_id"));
         return Integer.parseInt(paramId);
     }
 }

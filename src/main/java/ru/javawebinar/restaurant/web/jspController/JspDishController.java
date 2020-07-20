@@ -19,23 +19,23 @@ public class JspDishController extends AbstractDishController {
 
     @GetMapping("dish_delete")
     String delete(HttpServletRequest request) {
-        super.delete(getDishId(request), getRestId(request));
+        super.delete(getDishId(request), getRestaurantId(request));
         return "redirect:/restaurants";
     }
 
     @GetMapping("/dish_create")
     String create(Model model, HttpServletRequest request) {
         Dish dish = new Dish("", 0);
-        request.setAttribute("restaurantId", getRestId(request));
+        request.setAttribute("restaurantId", getRestaurantId(request));
         model.addAttribute("dish", dish);
         return "dishForm";
     }
 
     @GetMapping("/dish_update")
     String update(Model model, HttpServletRequest request) {
-        Dish dish = get(getDishId(request), getRestId(request));
-//        request.setAttribute("dishId", getDishId(request));
-        request.setAttribute("restaurantId", getRestId(request));
+        Dish dish = get(getDishId(request), getRestaurantId(request));
+//        request.setAttribute("d_id", getd_id(request));
+        request.setAttribute("restaurantId", getRestaurantId(request));
         model.addAttribute("dish", dish);
         return "dishForm";
     }
@@ -44,22 +44,22 @@ public class JspDishController extends AbstractDishController {
     public String save(HttpServletRequest request) throws IOException {
         Dish dish = new Dish(request.getParameter("dish_name"), Integer.parseInt(request.getParameter("dish_price")));
 
-        if (request.getParameter("dishId").isEmpty()) {
-            super.create(dish, getRestId(request));
+        if (request.getParameter("d_id").isEmpty()) {
+            super.create(dish, getRestaurantId(request));
         } else {
-            super.update(dish, getDishId(request), getRestId(request));
+            super.update(dish, getDishId(request), getRestaurantId(request));
         }
         return "redirect:restaurants";
     }
 
 
     private int getDishId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("dishId"));
+        String paramId = Objects.requireNonNull(request.getParameter("d_id"));
         return Integer.parseInt(paramId);
     }
 
-    private int getRestId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("restId"));
+    private int getRestaurantId(HttpServletRequest request) {
+        String paramId = Objects.requireNonNull(request.getParameter("r_id"));
         return Integer.parseInt(paramId);
     }
 }

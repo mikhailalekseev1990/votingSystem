@@ -7,7 +7,7 @@
 <hr>
 <form method="post" action="users">
     <b>Restaurants of&nbsp;</b>
-    <select name="userId">
+    <select name="u_id">
         <option value="100000">User</option>
         <option value="100001">Admin</option>
     </select>

@@ -34,8 +34,8 @@ public class JspUserController extends AbstractUserController {
 
     @PostMapping("/users")
     public String setUser(HttpServletRequest request) {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        SecurityUtil.setAuthUserId(userId);
+        int u_id = Integer.parseInt(request.getParameter("u_id"));
+        SecurityUtil.setAuthu_id(u_id);
         return "redirect:restaurants";
     }
 
