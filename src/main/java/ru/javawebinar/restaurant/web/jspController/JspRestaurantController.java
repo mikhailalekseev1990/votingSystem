@@ -56,8 +56,15 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "restaurants";
     }
 
+    @GetMapping("/vote")
+    public String vote(HttpServletRequest request){
+        super.vote(getRestaurantId(request));
+        return "redirect:/restaurants";
+    }
+
     private int getRestaurantId(HttpServletRequest request) {
         String paramId = Objects.requireNonNull(request.getParameter("r_id"));
         return Integer.parseInt(paramId);
     }
+
 }

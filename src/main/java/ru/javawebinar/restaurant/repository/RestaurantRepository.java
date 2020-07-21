@@ -13,4 +13,6 @@ public interface RestaurantRepository {
     Restaurant get(int id, int u_id);
 
     List<Restaurant> getAll(int u_id);
+
+    void vote(int id, int u_id);
 }

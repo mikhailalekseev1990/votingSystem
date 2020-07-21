@@ -46,6 +46,12 @@ public abstract class AbstractRestaurantController {
         checkNotFoundWithId(restaurantRepository.save(restaurant, u_id), restaurant.id());
     }
 
+    public void vote(int r_id){
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("vote user {} for restaurant {}", u_id, r_id);
+        restaurantRepository.vote(r_id, u_id);
+    }
+
     public List<Restaurant> getAll() {
         int u_id = SecurityUtil.authu_id();
         LOG.info("getAll restaurants for user {}", u_id);

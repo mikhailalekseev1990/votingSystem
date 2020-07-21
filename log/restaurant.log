@@ -4273,3 +4273,428 @@ ru.javawebinar.restaurant.web.jspController.JspDishController#save(HttpServletRe
 2020-07-20 10:55:40,355 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:51 - getAll restaurants for user 100000
 2020-07-20 10:55:44,798 WARN  org.springframework.web.servlet.PageNotFound.noHandlerFound:1251 - No mapping for GET /restaurant/restaurants/vote
 2020-07-20 10:55:50,143 WARN  org.springframework.web.servlet.PageNotFound.noHandlerFound:1251 - No mapping for GET /restaurant/restaurants/vote
+2020-07-20 11:40:01,905 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 11:40:03,508 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 11:40:03,838 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 11:40:04,523 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 11:40:06,690 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 11:40:07,698 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 11:40:09,036 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 11:40:09,282 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 11:40:09,601 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 7691 ms
+2020-07-20 11:40:09,646 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 11:40:10,724 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 1077 ms
+2020-07-20 11:40:21,976 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 11:41:42,092 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 11:41:42,284 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:01:47,544 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:01:48,352 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:01:48,606 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:01:49,106 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:01:49,769 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:01:50,059 WARN  o.s.web.context.support.XmlWebApplicationContext.refresh:558 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/spring-db.xml]: Invocation of init method failed; nested exception is org.hibernate.DuplicateMappingException: Duplicate query mapping Restaurant.vote
+2020-07-20 12:01:50,064 ERROR org.springframework.web.context.ContextLoader.initWebApplicationContext:313 - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/spring-db.xml]: Invocation of init method failed; nested exception is org.hibernate.DuplicateMappingException: Duplicate query mapping Restaurant.vote
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:401)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:292)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:103)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4686)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5147)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:717)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:690)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:705)
+	at org.apache.catalina.startup.HostConfig.manageApp(HostConfig.java:1727)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:288)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:456)
+	at org.apache.catalina.mbeans.MBeanFactory.createStandardContext(MBeanFactory.java:405)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.tomcat.util.modeler.BaseModelMBean.invoke(BaseModelMBean.java:288)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management/com.sun.jmx.remote.security.MBeanServerAccessController.invoke(MBeanServerAccessController.java:468)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1406)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:691)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:391)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.hibernate.DuplicateMappingException: Duplicate query mapping Restaurant.vote
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.checkQueryName(InFlightMetadataCollectorImpl.java:573)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.applyNamedQuery(InFlightMetadataCollectorImpl.java:567)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.addNamedQuery(InFlightMetadataCollectorImpl.java:563)
+	at org.hibernate.cfg.annotations.QueryBinder.bindQuery(QueryBinder.java:77)
+	at org.hibernate.cfg.annotations.QueryBinder.bindQueries(QueryBinder.java:220)
+	at org.hibernate.cfg.AnnotationBinder.bindQueries(AnnotationBinder.java:399)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:587)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:254)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:230)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:273)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	... 58 common frames omitted
+2020-07-20 12:09:02,277 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:09:03,966 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:09:04,134 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:09:04,371 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:09:05,107 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:09:06,043 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:09:07,801 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:09:07,970 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:09:08,617 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6330 ms
+2020-07-20 12:09:08,678 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:09:09,652 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 973 ms
+2020-07-20 12:09:15,226 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:09:18,875 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 12:10:02,970 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:10:04,251 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:10:04,348 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:10:04,557 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:10:04,877 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:10:06,023 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:10:07,375 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:10:07,509 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:10:07,815 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 4836 ms
+2020-07-20 12:10:07,906 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:10:08,998 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 1092 ms
+2020-07-20 12:10:12,101 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:10:14,886 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 12:10:27,546 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:10:33,158 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100005
+2020-07-20 12:24:23,623 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:24:24,735 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:24:24,855 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:24:25,108 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:24:26,226 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:24:27,954 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:24:29,361 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:24:29,796 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:24:30,338 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6711 ms
+2020-07-20 12:24:30,387 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:24:31,254 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 867 ms
+2020-07-20 12:24:39,332 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:24:48,498 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100001
+2020-07-20 12:24:52,593 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:33:54,891 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:33:56,070 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:33:56,169 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:33:56,345 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:33:56,781 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:33:57,981 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:33:59,106 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:33:59,283 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:33:59,728 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 4825 ms
+2020-07-20 12:33:59,757 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:34:00,668 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 911 ms
+2020-07-20 12:34:05,439 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:34:11,673 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 12:39:18,897 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:39:20,677 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:39:20,774 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:39:20,947 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:39:21,333 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:39:22,740 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:39:24,360 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:39:24,501 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:39:24,803 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 5902 ms
+2020-07-20 12:39:24,829 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:39:25,660 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 830 ms
+2020-07-20 12:39:35,557 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:39:39,709 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 12:39:39,831 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:40:46,720 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 12:40:47,941 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 12:40:48,122 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 12:40:48,318 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 12:40:48,860 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 12:40:49,662 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 12:40:50,874 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 12:40:51,088 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 12:40:51,328 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 4600 ms
+2020-07-20 12:40:51,355 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 12:40:51,889 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 534 ms
+2020-07-20 12:40:59,901 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:41:03,759 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 12:41:03,887 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:41:08,139 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 12:41:08,177 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 12:41:10,292 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 12:41:10,332 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:03:30,167 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 13:03:30,878 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 13:03:30,955 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 13:03:31,129 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 13:03:31,770 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 13:03:32,479 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 13:03:34,724 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 13:03:35,015 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 13:03:35,388 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 5218 ms
+2020-07-20 13:03:35,412 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 13:03:36,469 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 1057 ms
+2020-07-20 13:04:01,676 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:04:36,732 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:04:39,474 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:04:40,456 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:05:24,093 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 13:05:24,236 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:21:37,316 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:27:30,869 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 13:27:31,945 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 13:27:32,068 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 13:27:32,488 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 13:27:33,591 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 13:27:35,429 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 13:27:37,236 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 13:27:37,597 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 13:27:38,047 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 7175 ms
+2020-07-20 13:27:38,107 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 13:27:39,001 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 894 ms
+2020-07-20 13:27:43,718 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:27:59,069 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 13:27:59,239 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:28:30,347 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100005
+2020-07-20 13:28:30,420 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:32:17,474 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 13:32:19,183 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 13:32:19,274 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 13:32:19,450 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 13:32:20,249 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 13:32:21,714 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 13:32:23,380 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 13:32:23,515 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 13:32:23,814 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6332 ms
+2020-07-20 13:32:24,833 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 13:32:25,776 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 940 ms
+2020-07-20 13:54:53,689 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 13:54:54,690 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 13:54:54,773 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 13:54:55,064 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 13:54:55,650 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 13:54:56,944 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 13:54:59,105 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 13:54:59,378 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 13:54:59,863 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6171 ms
+2020-07-20 13:54:59,887 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 13:55:01,271 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 1384 ms
+2020-07-20 13:55:10,588 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:55:15,652 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 13:55:15,757 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 13:58:44,193 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 13:58:46,208 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 13:58:46,342 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 13:58:46,710 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 13:58:47,320 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 13:58:48,697 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 13:58:49,886 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 13:58:50,025 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 13:58:51,158 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6962 ms
+2020-07-20 13:58:51,220 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 13:58:51,768 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 548 ms
+2020-07-20 14:03:46,718 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:03:49,291 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 14:03:49,353 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:65 - user 100000 vote true
+2020-07-20 14:03:49,353 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:68 - restaurant 100002 voteSum 0
+2020-07-20 14:03:49,379 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:11:54,074 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 14:11:55,831 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 14:11:56,094 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 14:11:56,442 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 14:11:57,457 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 14:11:58,606 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 14:12:00,416 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 14:12:00,675 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 14:12:01,235 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 7156 ms
+2020-07-20 14:12:01,390 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 14:12:02,119 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 727 ms
+2020-07-20 14:12:06,903 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:12:10,086 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 14:12:10,141 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:65 - user 100000 vote true
+2020-07-20 14:12:10,142 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:68 - restaurant 100002 voteSum 0
+2020-07-20 14:12:10,167 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:17:34,837 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-20 14:17:36,035 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-20 14:17:36,129 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-20 14:17:36,320 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-20 14:17:37,130 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-20 14:17:37,886 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-20 14:17:38,944 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-20 14:17:39,110 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-20 14:17:39,351 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 4493 ms
+2020-07-20 14:17:39,377 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-20 14:17:40,054 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 676 ms
+2020-07-20 14:17:54,324 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:17:57,175 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 14:17:57,281 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:66 - user 100000 vote true
+2020-07-20 14:17:57,287 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:71 - restaurant 100002 voteSum 0
+2020-07-20 14:17:57,306 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:18:33,543 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-20 14:18:33,601 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 14:19:22,616 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-20 14:19:22,671 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 15:07:06,857 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-20 15:07:08,623 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-21 10:07:39,826 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-21 10:07:42,980 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-21 10:07:43,166 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-21 10:07:43,619 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-21 10:07:44,598 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-21 10:07:45,592 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-21 10:07:46,950 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-21 10:07:47,207 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-21 10:07:47,773 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 7937 ms
+2020-07-21 10:07:47,822 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-21 10:07:48,810 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 988 ms
+2020-07-21 10:07:53,680 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-21 10:07:56,756 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-21 10:07:56,856 INFO  o.h.event.internal.DefaultLoadEventListener.doOnLoad:116 - HHH000327: Error performing load command
+org.hibernate.PropertyAccessException: Null value was assigned to a property [class ru.javawebinar.restaurant.model.User.vote_restaurant_id] of primitive type setter of ru.javawebinar.restaurant.model.User.vote_restaurant_id
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:58)
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.setPropertyValues(AbstractEntityTuplizer.java:680)
+	at org.hibernate.tuple.entity.PojoEntityTuplizer.setPropertyValues(PojoEntityTuplizer.java:144)
+	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:5119)
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntityFromEntityEntryLoadedState(TwoPhaseLoad.java:290)
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:185)
+	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:153)
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.performTwoPhaseLoad(AbstractRowReader.java:255)
+	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.finishUp(AbstractRowReader.java:215)
+	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:96)
+	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105)
+	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:259)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4415)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4405)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:569)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:537)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:103)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:113)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1184)
+	at org.hibernate.internal.SessionImpl.immediateLoad(SessionImpl.java:1003)
+	at org.hibernate.proxy.AbstractLazyInitializer.initialize(AbstractLazyInitializer.java:179)
+	at org.hibernate.proxy.AbstractLazyInitializer.getImplementation(AbstractLazyInitializer.java:310)
+	at org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor.intercept(ByteBuddyInterceptor.java:45)
+	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95)
+	at ru.javawebinar.restaurant.model.User$HibernateProxy$pzponXxG.isVote(Unknown Source)
+	at ru.javawebinar.restaurant.repository.JPA.JpaRestaurantRepository.vote(JpaRestaurantRepository.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy65.vote(Unknown Source)
+	at ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController.vote(AbstractRestaurantController.java:52)
+	at ru.javawebinar.restaurant.web.jspController.JspRestaurantController.vote(JspRestaurantController.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: java.lang.IllegalArgumentException: Can not set int field ru.javawebinar.restaurant.model.User.vote_restaurant_id to null value
+	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at java.base/jdk.internal.reflect.UnsafeIntegerFieldAccessorImpl.set(UnsafeIntegerFieldAccessorImpl.java:80)
+	at java.base/java.lang.reflect.Field.set(Field.java:778)
+	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:52)
+	... 80 common frames omitted
+2020-07-21 10:07:56,858 WARN  org.hibernate.engine.loading.internal.LoadContexts.cleanup:98 - HHH000100: Fail-safe cleanup (collections) : org.hibernate.engine.loading.internal.CollectionLoadContext@406dced2<rs=org.postgresql.jdbc.PgResultSet@6c17c553>
+2020-07-21 10:07:56,859 WARN  o.h.engine.loading.internal.CollectionLoadContext.cleanup:420 - HHH000160: On CollectionLoadContext#cleanup, localLoadingCollectionKeys contained [1] entries
+2020-07-21 10:11:08,929 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-07-21 10:11:10,837 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-21 10:11:11,031 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-07-21 10:11:11,471 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-21 10:11:12,660 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-07-21 10:11:13,446 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-07-21 10:11:14,890 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-21 10:11:15,214 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-21 10:11:15,904 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6964 ms
+2020-07-21 10:11:16,000 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-07-21 10:11:17,597 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 1596 ms
+2020-07-21 10:11:22,745 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-21 10:11:25,456 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100002
+2020-07-21 10:11:25,767 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:66 - user 100000 vote true
+2020-07-21 10:11:25,773 INFO  r.j.r.repository.JPA.JpaRestaurantRepository.vote:71 - restaurant 100002 voteSum 0
+2020-07-21 10:11:25,795 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000
+2020-07-21 10:11:28,560 INFO  r.j.r.w.a.AbstractRestaurantController.vote:51 - vote user 100000 for restaurant 100003
+2020-07-21 10:11:28,685 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:57 - getAll restaurants for user 100000

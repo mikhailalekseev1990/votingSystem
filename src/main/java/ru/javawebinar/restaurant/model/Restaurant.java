@@ -11,7 +11,10 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:u_id"),
-        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:u_id ORDER BY r.id")
+        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:u_id ORDER BY r.id"),
+        @NamedQuery(name = Restaurant.VOTE, query = "UPDATE Restaurant r SET r.voteSum = r.voteSum + 1 WHERE r.id = ?1 AND r.user.id = ?2")
+
+
 })
 
 @Entity
@@ -19,6 +22,7 @@ import java.util.List;
 public class Restaurant {
     public static final String DELETE = "Restaurant.delete";
     public static final String GET_ALL = "Restaurant.getAll";
+    public static final String VOTE = "Restaurant.vote";
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
@@ -43,7 +47,7 @@ public class Restaurant {
     @OrderBy("id")
     private List<Dish> dishes;
 
-    public Restaurant(){
+    public Restaurant() {
 
     }
 

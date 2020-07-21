@@ -10,13 +10,14 @@ CREATE SEQUENCE global_seq START WITH 100000;
 
 CREATE TABLE users
 (
-    id           INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    name         VARCHAR                           NOT NULL,
-    email        VARCHAR                           NOT NULL,
-    password     VARCHAR                           NOT NULL,
-    registration TIMESTAMP           DEFAULT now() NOT NULL,
-    vote         BOOLEAN             DEFAULT TRUE  NOT NULL,
-    voteTime     TIMESTAMP           DEFAULT now() NOT NULL
+    id                 INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    name               VARCHAR                           NOT NULL,
+    email              VARCHAR                           NOT NULL,
+    password           VARCHAR                           NOT NULL,
+    registration       TIMESTAMP           DEFAULT now() NOT NULL,
+    vote               BOOLEAN             DEFAULT TRUE  NOT NULL,
+    vote_time          TIMESTAMP           DEFAULT NULL
+--     vote_restaurant_id INTEGER             DEFAULT NULL
 
 );
 

@@ -14,6 +14,8 @@ import java.util.Set;
         @NamedQuery(name = User.DELETE, query = "DELETE FROM User u WHERE u.id=:id"),
         @NamedQuery(name = User.BY_EMAIL, query = "SELECT u FROM User u LEFT JOIN FETCH u.role WHERE u.email=?1"),
         @NamedQuery(name = User.ALL_SORTED, query = "SELECT u FROM User u LEFT JOIN FETCH u.role ORDER BY u.name, u.email"),
+        @NamedQuery(name = User.IsVOTE, query = "UPDATE User u SET u.vote = FALSE WHERE u.id = ?1")
+
 })
 
 @Entity
@@ -23,6 +25,7 @@ public class User {
     public static final String DELETE = "User.delete";
     public static final String BY_EMAIL = "User.getByEmail";
     public static final String ALL_SORTED = "User.getAllSorted";
+    public static final String IsVOTE = "User.isVote";
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
@@ -51,9 +54,13 @@ public class User {
     @Column(name = "vote", nullable = false, columnDefinition = "bool default true")
     private boolean vote;
 
-    @Column(name = "voteTime", nullable = false)
+    @Column(name = "vote_time", nullable = false)
     @NotNull
     private Date voteTime = new Date();
+
+//    @Column(name = "vote_restaurant_id", nullable = false)
+//    @NotNull
+//    private int vote_restaurant_id;
 
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
@@ -134,4 +141,12 @@ public class User {
     public void setRole(Set<Role> role) {
         this.role = role;
     }
+//
+//    public int getVote_restaurant_id() {
+//        return vote_restaurant_id;
+//    }
+//
+//    public void setVote_restaurant_id(int vote_restaurant_id) {
+//        this.vote_restaurant_id = vote_restaurant_id;
+//    }
 }

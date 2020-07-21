@@ -24,8 +24,8 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Votes</th>
             <th>Menu</th>
-            <th>voteSum</th>
             <th></th>
             <th></th>
         </tr>
@@ -36,6 +36,7 @@
             <tr>
                 <td>${restaurant.id}</td>
                 <td>${restaurant.name}</td>
+                <td>${restaurant.voteSum}</td>
                 <td>
                     <a href="dish/dish_create?r_id=${restaurant.id}">Add Dish</a>
 
@@ -68,7 +69,6 @@
                     </table>
                 </td>
 
-                <td>${restaurant.voteSum}</td>
                 <td><a href="restaurants/update?r_id=${restaurant.id}">Update</a></td>
                 <td><a href="restaurants/delete?r_id=${restaurant.id}">Delete</a></td>
                 <td><a href="restaurants/vote?r_id=${restaurant.id}"> Vote </a></td>
