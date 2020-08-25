@@ -18,25 +18,26 @@
     <hr/>
     <a href="${pageContext.request.contextPath}/restaurants/create">Add Restaurant</a>
     <br><br>
-
+    <c:set var="user" value='${requestScope["user"]}' scope="request"/>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Votes</th>
             <th>Menu</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <c:forEach items="${restaurants}" var="restaurant">
+<%--            <c:if test="${restaurant.id==restaurant.user.vote_restaurant_id}">--%>
+<%--                background: maroon;--%>
+<%--            </c:if>--%>
             <jsp:useBean id="restaurant" type="ru.javawebinar.restaurant.model.Restaurant"/>
             <input type="hidden" name="r_id" value="${restaurant.id}">
-            <tr>
+            <tr style="color:${restaurant.id==user.vote_restaurant_id ? 'blue' : 'red'}">
                 <td>${restaurant.id}</td>
                 <td>${restaurant.name}</td>
-                <td>${restaurant.voteSum}</td>
                 <td>
                     <a href="dish/dish_create?r_id=${restaurant.id}">Add Dish</a>
 

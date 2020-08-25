@@ -8,21 +8,20 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
 @NamedQueries({
         @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:u_id"),
-        @NamedQuery(name = Restaurant.GET_ALL, query = "SELECT r FROM Restaurant r WHERE r.user.id=:u_id ORDER BY r.id"),
-        @NamedQuery(name = Restaurant.VOTE, query = "UPDATE Restaurant r SET r.voteSum = r.voteSum + 1 WHERE r.id = ?1 AND r.user.id = ?2")
-
-
+        @NamedQuery(name = Restaurant.GET_ALL_FOR_ADMIN, query = "SELECT r FROM Restaurant r WHERE r.user.id=:u_id ORDER BY r.id"),
+        @NamedQuery(name = Restaurant.GET_ALL_FOR_USER, query = "SELECT r FROM Restaurant r ORDER BY r.id"),
+//        @NamedQuery(name = Restaurant.VOTE, query = "UPDATE Restaurant r SET r.voteSum = r.voteSum + 1 WHERE r.id = ?1 AND r.user.id = ?2")
 })
-
 @Entity
 @Table(name = "restaurants")
 public class Restaurant {
     public static final String DELETE = "Restaurant.delete";
-    public static final String GET_ALL = "Restaurant.getAll";
-    public static final String VOTE = "Restaurant.vote";
+    public static final String GET_ALL_FOR_ADMIN = "Restaurant.getAllForAdmin";
+    public static final String GET_ALL_FOR_USER = "Restaurant.getAllForUser";
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
@@ -33,9 +32,6 @@ public class Restaurant {
     @NotBlank
     private String name;
 
-    @Column(name = "voteSum")
-    @NotNull
-    private int voteSum;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -43,7 +39,7 @@ public class Restaurant {
     @NotNull
     private User user;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @OrderBy("id")
     private List<Dish> dishes;
 
@@ -51,8 +47,13 @@ public class Restaurant {
 
     }
 
-    public Restaurant(String name) {
+    public Restaurant(Integer id, String name) {
+        this.id = id;
         this.name = name;
+    }
+
+    public Restaurant( String name) {
+        this(null, name);
     }
 
     public int id() {
@@ -80,13 +81,13 @@ public class Restaurant {
         this.name = name;
     }
 
-    public int getVoteSum() {
-        return voteSum;
-    }
-
-    public void setVoteSum(int voteSum) {
-        this.voteSum = voteSum;
-    }
+//    public int getVoteSum() {
+//        return voteSum;
+//    }
+//
+//    public void setVoteSum(int voteSum) {
+//        this.voteSum = voteSum;
+//    }
 
     public User getUser() {
         return user;
@@ -102,5 +103,18 @@ public class Restaurant {
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id;
     }
 }

@@ -7,11 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
-import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.time.LocalDateTime;
 import java.util.List;
+
+import static ru.javawebinar.restaurant.Utils.TimeUtil.*;
 
 @Repository
 @Transactional(readOnly = true)
@@ -50,25 +52,15 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 
     @Override
     public List<Restaurant> getAll(int u_id) {
-        return manager.createNamedQuery(Restaurant.GET_ALL, Restaurant.class)
+        return manager.createNamedQuery(Restaurant.GET_ALL_FOR_ADMIN, Restaurant.class)
                 .setParameter("u_id", u_id)
                 .getResultList();
     }
 
     @Override
-    @Transactional
-    public void vote(int id, int u_id) {
-        Restaurant restaurant = get(id, u_id);
-        if (restaurant.getUser().isVote()) {  //TODO take to consideration time
-            manager.createNamedQuery(User.IsVOTE)
-                    .setParameter(1, u_id)
-                    .executeUpdate();
-            LOG.info("user {} vote {}", u_id, restaurant.getUser().isVote());
-            manager.createNamedQuery(Restaurant.VOTE)
-                    .setParameter(1, id)
-                    .setParameter(2, u_id)
-                    .executeUpdate();
-            LOG.info("restaurant {} voteSum {}", id, restaurant.getVoteSum());
-        }
+    public List<Restaurant> getAll() {
+        return manager.createNamedQuery(Restaurant.GET_ALL_FOR_USER, Restaurant.class).getResultList();
     }
+
+
 }

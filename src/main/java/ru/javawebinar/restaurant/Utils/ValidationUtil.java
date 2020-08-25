@@ -1,10 +1,12 @@
 package ru.javawebinar.restaurant.Utils;
 
+import ru.javawebinar.restaurant.Utils.exception.NotFoundException;
 import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.model.User;
 
 public class ValidationUtil {
+
     private ValidationUtil() {
 
     }

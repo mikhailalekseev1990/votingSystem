@@ -5,10 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.model.Restaurant;
+import ru.javawebinar.restaurant.model.Role;
+import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
+import ru.javawebinar.restaurant.repository.UserRepository;
 import ru.javawebinar.restaurant.web.SecurityUtil;
 
 import java.util.List;
+import java.util.Set;
 
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
 
@@ -17,6 +21,13 @@ public abstract class AbstractRestaurantController {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
+    public User getUser(int u_id) {
+        return checkNotFoundWithId(userRepository.get(u_id), u_id);
+    }
 
     public Restaurant get(int id) {
         int u_id = SecurityUtil.authu_id();
@@ -46,15 +57,22 @@ public abstract class AbstractRestaurantController {
         checkNotFoundWithId(restaurantRepository.save(restaurant, u_id), restaurant.id());
     }
 
-    public void vote(int r_id){
-        int u_id = SecurityUtil.authu_id();
-        LOG.info("vote user {} for restaurant {}", u_id, r_id);
-        restaurantRepository.vote(r_id, u_id);
-    }
 
     public List<Restaurant> getAll() {
         int u_id = SecurityUtil.authu_id();
-        LOG.info("getAll restaurants for user {}", u_id);
-        return restaurantRepository.getAll(u_id);
+       Set<Role> role = getUser(u_id).getRoles();
+        boolean isAdmin = role.contains(Role.ADMIN);
+        LOG.info("isAdmin = {} for user {}",isAdmin, u_id);
+        if (isAdmin) {
+            LOG.info("getAll restaurants for user {}", u_id);
+            return restaurantRepository.getAll(u_id);
+        }
+        return restaurantRepository.getAll();
+    }
+
+    public void vote(int r_id) {
+        int u_id = SecurityUtil.authu_id();
+        LOG.info("vote user {} for restaurant {}", u_id, r_id);
+        userRepository.vote(u_id, r_id);
     }
 }

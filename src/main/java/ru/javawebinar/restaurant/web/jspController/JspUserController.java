@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 public class JspUserController extends AbstractUserController {
-    Logger LOG = LoggerFactory.getLogger(JspUserController.class);
+
     @Autowired
     private RestaurantRepository restaurantRepository;
 

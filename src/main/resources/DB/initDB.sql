@@ -11,13 +11,13 @@ CREATE SEQUENCE global_seq START WITH 100000;
 CREATE TABLE users
 (
     id                 INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    name               VARCHAR                           NOT NULL,
-    email              VARCHAR                           NOT NULL,
-    password           VARCHAR                           NOT NULL,
-    registration       TIMESTAMP           DEFAULT now() NOT NULL,
-    vote               BOOLEAN             DEFAULT TRUE  NOT NULL,
-    vote_time          TIMESTAMP           DEFAULT NULL
---     vote_restaurant_id INTEGER             DEFAULT NULL
+    name               VARCHAR                                                  NOT NULL,
+    email              VARCHAR                                                  NOT NULL,
+    password           VARCHAR                                                  NOT NULL,
+    registration       TIMESTAMP           DEFAULT now()                        NOT NULL,
+    vote               BOOLEAN             DEFAULT TRUE                         NOT NULL,
+    vote_time          TIMESTAMP           DEFAULT '1000-01-30 10:00:00.000000' NOT NULL,
+    vote_restaurant_id INTEGER             DEFAULT 0
 
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE restaurants
     id      INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     user_id INTEGER NOT NULL,
     name    VARCHAR NOT NULL,
-    voteSum INTEGER             DEFAULT 0,
+--     voteSum INTEGER             DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 
 );

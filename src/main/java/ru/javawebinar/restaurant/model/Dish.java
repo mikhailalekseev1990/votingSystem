@@ -7,6 +7,7 @@ import org.springframework.util.Assert;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @NamedQueries({
         @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=?1 and m.restaurant.id=?2"),
@@ -14,8 +15,6 @@ import javax.validation.constraints.NotNull;
         @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d")
 
 })
-
-
 @Entity
 @Table(name = "menu")
 public class Dish {
@@ -47,6 +46,11 @@ public class Dish {
     }
 
     public Dish(String name, int price) {
+        this(null, name, price);
+    }
+
+    public Dish(Integer id, String name, int price) {
+        this.id = id;
         this.name = name;
         this.price = price;
     }
@@ -98,5 +102,18 @@ public class Dish {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return id.equals(dish.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id == null ? 0 : id;
     }
 }
