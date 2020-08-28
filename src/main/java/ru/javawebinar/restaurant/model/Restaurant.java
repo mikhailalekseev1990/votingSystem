@@ -39,7 +39,7 @@ public class Restaurant {
     @NotNull
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @OrderBy("id")
     private List<Dish> dishes;
 

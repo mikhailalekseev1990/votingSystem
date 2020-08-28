@@ -6186,3 +6186,36 @@ User.getByEmail failed because of: org.hibernate.QueryException: could not resol
 2020-08-25 11:40:05,034 INFO  r.j.r.w.a.AbstractRestaurantController.get:34 - get restaurant 100003 for user 100000
 2020-08-25 11:40:09,637 INFO  r.j.r.w.a.AbstractRestaurantController.get:34 - get restaurant 100002 for user 100000
 2020-08-25 11:41:01,964 INFO  r.j.r.w.a.AbstractRestaurantController.delete:40 - delete restaurant 100004 for user 100000
+2020-08-26 10:28:57,569 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-08-26 10:28:58,620 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-26 10:28:58,740 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-26 10:28:58,983 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-26 10:28:59,793 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-08-26 10:29:01,095 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-08-26 10:29:03,351 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-26 10:29:03,735 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-26 10:29:04,364 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 6786 ms
+2020-08-26 10:29:04,468 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-08-26 10:29:05,135 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 666 ms
+2020-08-26 10:29:10,352 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:65 - isAdmin = false for user 100000
+2020-08-26 10:30:21,850 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:271 - Root WebApplicationContext: initialization started
+2020-08-26 10:30:22,811 INFO  org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-08-26 10:30:22,898 INFO  org.hibernate.Version.logVersion:44 - HHH000412: Hibernate ORM core version 5.4.18.Final
+2020-08-26 10:30:23,088 INFO  org.hibernate.annotations.common.Version.<clinit>:49 - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-08-26 10:30:23,832 INFO  org.hibernate.dialect.Dialect.<init>:172 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-08-26 10:30:24,766 INFO  org.hibernate.validator.internal.util.Version.<clinit>:21 - HV000001: Hibernate Validator 6.1.5.Final
+2020-08-26 10:30:26,054 INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator.initiateService:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-08-26 10:30:26,251 INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory:416 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-08-26 10:30:26,761 INFO  org.springframework.web.context.ContextLoader.initWebApplicationContext:307 - Root WebApplicationContext initialized in 4887 ms
+2020-08-26 10:30:26,787 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:525 - Initializing Servlet 'mvc-dispatcher'
+2020-08-26 10:30:27,456 INFO  org.springframework.web.servlet.DispatcherServlet.initServletBean:547 - Completed initialization in 669 ms
+2020-08-26 10:30:31,006 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:65 - isAdmin = false for user 100000
+2020-08-26 10:30:43,263 INFO  r.j.r.w.a.AbstractRestaurantController.get:34 - get restaurant 100002 for user 100000
+2020-08-26 10:31:04,020 INFO  r.j.r.w.a.AbstractRestaurantController.get:34 - get restaurant 100002 for user 100000
+2020-08-26 10:31:08,060 INFO  r.j.r.w.a.AbstractRestaurantController.get:34 - get restaurant 100003 for user 100000
+2020-08-26 10:31:11,426 INFO  r.j.r.w.a.AbstractRestaurantController.vote:75 - vote user 100000 for restaurant 100002
+2020-08-26 10:31:11,534 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:65 - isAdmin = false for user 100000
+2020-08-26 10:31:16,904 INFO  r.j.r.w.a.AbstractRestaurantController.vote:75 - vote user 100000 for restaurant 100003
+2020-08-26 10:31:16,979 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:65 - isAdmin = false for user 100000
+2020-08-26 10:31:18,588 INFO  r.j.r.w.a.AbstractRestaurantController.vote:75 - vote user 100000 for restaurant 100002
+2020-08-26 10:31:18,728 INFO  r.j.r.w.a.AbstractRestaurantController.getAll:65 - isAdmin = false for user 100000
