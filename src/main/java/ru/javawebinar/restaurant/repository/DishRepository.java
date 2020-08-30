@@ -13,5 +13,5 @@ public interface DishRepository {
 
     List<Dish> getAll(int r_id);
 
-    List<Dish> getAll();
+    Dish getWithRestaurant(int id, int rId);
 }

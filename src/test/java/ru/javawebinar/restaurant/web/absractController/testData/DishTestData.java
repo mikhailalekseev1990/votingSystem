@@ -6,7 +6,7 @@ import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 import java.util.List;
 
 public class DishTestData {
-    public static TestMatcher<Dish> DISH_MATCHER = TestMatcher.usingFieldsComparator("restaurant");
+    public static TestMatcher<Dish> DISH_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Dish.class, "restaurant");
 
     public static final int DISH_ID_1 = 100007;
 
@@ -26,7 +26,7 @@ public class DishTestData {
     public static final Dish DISH_13 = new Dish(DISH_ID_1 + 12, "dish_2_5", 1114);
 
     public static final List<Dish> DISHES = List.of(DISH_13, DISH_12, DISH_11, DISH_10, DISH_9, DISH_8, DISH_7, DISH_6, DISH_5, DISH_4, DISH_3, DISH_2, DISH_1);
-    public static final List<Dish> DISHES_FOR_REST_1 = List.of( DISH_1, DISH_2, DISH_3);
+    public static final List<Dish> DISHES_FOR_REST_1 = List.of(DISH_1, DISH_2, DISH_3);
 
     public static Dish getNew() {
         return new Dish(null, "Create Dish", 99);

@@ -75,4 +75,9 @@ public abstract class AbstractRestaurantController {
         LOG.info("vote user {} for restaurant {}", u_id, r_id);
         userRepository.vote(u_id, r_id);
     }
+
+    public Restaurant getWithDishes(int id) {
+        LOG.info("getWithMeals {}", id);
+        return checkNotFoundWithId(restaurantRepository.getWithDishes(id), id);
+    }
 }

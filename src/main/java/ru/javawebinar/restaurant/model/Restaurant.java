@@ -1,5 +1,7 @@
 package ru.javawebinar.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.util.Assert;
@@ -8,20 +10,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-import java.util.Objects;
 
-@NamedQueries({
-        @NamedQuery(name = Restaurant.DELETE, query = "DELETE FROM Restaurant r where r.id=:id and r.user.id=:u_id"),
-        @NamedQuery(name = Restaurant.GET_ALL_FOR_ADMIN, query = "SELECT r FROM Restaurant r WHERE r.user.id=:u_id ORDER BY r.id"),
-        @NamedQuery(name = Restaurant.GET_ALL_FOR_USER, query = "SELECT r FROM Restaurant r ORDER BY r.id"),
-//        @NamedQuery(name = Restaurant.VOTE, query = "UPDATE Restaurant r SET r.voteSum = r.voteSum + 1 WHERE r.id = ?1 AND r.user.id = ?2")
-})
 @Entity
 @Table(name = "restaurants")
 public class Restaurant {
-    public static final String DELETE = "Restaurant.delete";
-    public static final String GET_ALL_FOR_ADMIN = "Restaurant.getAllForAdmin";
-    public static final String GET_ALL_FOR_USER = "Restaurant.getAllForUser";
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
@@ -37,10 +29,12 @@ public class Restaurant {
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
+    @JsonIgnore
     private User user;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
     @OrderBy("id")
+    @JsonManagedReference
     private List<Dish> dishes;
 
     public Restaurant() {

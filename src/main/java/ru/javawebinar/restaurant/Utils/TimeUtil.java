@@ -11,7 +11,7 @@ public class TimeUtil {
     }
 
     public static LocalDateTime deadLine(LocalDateTime localDateTime) {
-        return LocalDateTime.of(localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(), 14, 0);
+        return LocalDateTime.of(localDateTime.getYear(), localDateTime.getMonth(), localDateTime.getDayOfMonth(), 11, 0);
     }
 
     public static boolean isNewDay(LocalDateTime voteTime, LocalDateTime now){

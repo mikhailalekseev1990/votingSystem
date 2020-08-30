@@ -23,4 +23,8 @@
         <property name="basenames" value="file:///#{systemEnvironment['RESTAURANT']}/config/messages/app"/>
         <property name="fallbackToSystemLocale" value="false"/>
     </bean>
+
+    <bean class="org.springframework.context.support.MessageSourceAccessor">
+        <constructor-arg ref="messageSource"/>
+    </bean>
 </beans>

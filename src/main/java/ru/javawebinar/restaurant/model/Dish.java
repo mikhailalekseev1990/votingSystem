@@ -1,5 +1,7 @@
 package ru.javawebinar.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.util.Assert;
@@ -7,21 +9,10 @@ import org.springframework.util.Assert;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
-@NamedQueries({
-        @NamedQuery(name = Dish.DELETE, query = "DELETE FROM Dish m where m.id=?1 and m.restaurant.id=?2"),
-        @NamedQuery(name = Dish.GET_ALL_FOR_RESTAURANT, query = "SELECT d FROM Dish d WHERE d.restaurant.id=:r_id"),
-        @NamedQuery(name = Dish.GET_ALL, query = "SELECT d FROM Dish d")
-
-})
 @Entity
 @Table(name = "menu")
 public class Dish {
-
-    public static final String DELETE = "Dish.delete";
-    public static final String GET_ALL = "Dish.getAll";
-    public static final String GET_ALL_FOR_RESTAURANT = "Dish.getAllForRestaurant";
 
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
@@ -40,6 +31,7 @@ public class Dish {
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
+    @JsonIgnore
     private Restaurant restaurant;
 
     public Dish() {

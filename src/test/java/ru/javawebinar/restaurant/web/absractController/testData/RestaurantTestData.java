@@ -7,7 +7,7 @@ import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 import java.util.List;
 
 public class RestaurantTestData {
-    public static TestMatcher<Restaurant> RESTAURANT_MATCHER = TestMatcher.usingFieldsComparator("user", "dishes");
+    public static TestMatcher<Restaurant> RESTAURANT_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Restaurant.class,"user", "dishes");
     public static final int START_SEQ = 100000;
     public static final int RESTAURANT_ID_1 = START_SEQ + 2;
     public static final int NOT_FOUND = 10;
