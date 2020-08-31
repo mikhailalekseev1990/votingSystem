@@ -17,10 +17,12 @@ public interface RestaurantRepository {
 
     Restaurant getWithDishes(int id);
 
-    Restaurant getWithUser(int id, int uId);
+    Restaurant getWithUser(int id, int u_id);
 
     List<Restaurant> getAll(int u_id);//for users with role admin
 
     List<Restaurant> getAll();//for users with role user
+
+    List<Restaurant> getAllWithDishes();
 
 }

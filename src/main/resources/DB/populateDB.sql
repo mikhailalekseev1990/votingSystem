@@ -23,7 +23,7 @@ VALUES ('Restaurant_1', 100000),
        ('Restaurant_4', 100000),
        ('Restaurant_5', 100001);
 
-INSERT INTO menu(dish, price, restaurant_id)
+INSERT INTO menu(name, price, restaurant_id)
 VALUES ('dish_1_1', 1000, 100002),
        ('dish_2_1', 1001, 100002),
        ('dish_3_1', 1002, 100002),

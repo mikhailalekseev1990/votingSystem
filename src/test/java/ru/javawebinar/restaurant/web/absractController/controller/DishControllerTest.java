@@ -48,19 +48,8 @@ public class DishControllerTest {
     }
 
     @Test
-    public void delete() throws Exception {
-        dishRepository.delete(DISH_ID_1, RESTAURANT_ID_1);
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.get(DISH_ID_1, RESTAURANT_ID_1), DISH_ID_1));
-    }
-
-    @Test
-    public void deleteNotFound() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.delete(NOT_FOUND, RESTAURANT_ID_1), NOT_FOUND));
-    }
-
-    @Test
-    public void deleteNotOwn() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.delete(DISH_ID_1, RESTAURANT_ID_1 + 1), NOT_FOUND));
+    public void getAll() {
+        DISH_MATCHER.assertMatch(dishRepository.getAll(RESTAURANT_ID_1), DISHES_FOR_RESTAURANT_1);
     }
 
     @Test
@@ -90,7 +79,18 @@ public class DishControllerTest {
     }
 
     @Test
-    public void getAll() {
-        DISH_MATCHER.assertMatch(dishRepository.getAll(RESTAURANT_ID_1), DISHES_FOR_REST_1);
+    public void delete() throws Exception {
+        dishRepository.delete(DISH_ID_1, RESTAURANT_ID_1);
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.get(DISH_ID_1, RESTAURANT_ID_1), DISH_ID_1));
+    }
+
+    @Test
+    public void deleteNotFound() throws Exception {
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.delete(NOT_FOUND, RESTAURANT_ID_1), NOT_FOUND));
+    }
+
+    @Test
+    public void deleteNotOwn() throws Exception {
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.delete(DISH_ID_1, RESTAURANT_ID_1 + 1), NOT_FOUND));
     }
 }

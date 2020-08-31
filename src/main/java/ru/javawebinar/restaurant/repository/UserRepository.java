@@ -20,4 +20,6 @@ public interface UserRepository {
     List<User> getAll();
 
     void vote(int u_id , int r_id);
+
+    User getWithRestaurants(int id);
 }

@@ -45,19 +45,8 @@ public class RestaurantControllerTest {
     }
 
     @Test
-    public void delete() throws Exception {
-        restaurantRepository.delete(RESTAURANT_ID_1, USER);
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.get(RESTAURANT_ID_1, USER), RESTAURANT_ID_1));
-    }
-
-    @Test
-    public void deleteNotFound() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(NOT_FOUND, USER), NOT_FOUND));
-    }
-
-    @Test
-    public void deleteNotOwn() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(RESTAURANT_ID_1, ADMIN), NOT_FOUND));
+    public void getAll() {
+        RESTAURANT_MATCHER.assertMatch(restaurantRepository.getAll(USER), RESTAURANTS_FOR_USER);
     }
 
     @Test
@@ -86,8 +75,21 @@ public class RestaurantControllerTest {
         assertTrue(exceptionMessage.contains(String.valueOf(RESTAURANT_ID_1)));
     }
 
+
     @Test
-    public void getAll() {
-        RESTAURANT_MATCHER.assertMatch(restaurantRepository.getAll(USER), RESTAURANTS_FOR_USER);
+    public void delete() throws Exception {
+        restaurantRepository.delete(RESTAURANT_ID_1, USER);
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.get(RESTAURANT_ID_1, USER), RESTAURANT_ID_1));
     }
+
+    @Test
+    public void deleteNotFound() throws Exception {
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(NOT_FOUND, USER), NOT_FOUND));
+    }
+
+    @Test
+    public void deleteNotOwn() throws Exception {
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(RESTAURANT_ID_1, ADMIN), NOT_FOUND));
+    }
+
 }

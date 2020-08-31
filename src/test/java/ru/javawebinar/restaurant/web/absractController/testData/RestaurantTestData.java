@@ -6,8 +6,16 @@ import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class RestaurantTestData {
-    public static TestMatcher<Restaurant> RESTAURANT_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Restaurant.class,"user", "dishes");
+    public static TestMatcher<Restaurant> RESTAURANT_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Restaurant.class, "user", "dishes");
+    public static TestMatcher<Restaurant> RESTAURANT_WITH_DISHES_MATCHER =
+            TestMatcher.usingAssertions(Restaurant.class,
+                    (a, e) -> assertThat(a).usingRecursiveComparison(),
+                    (a, e) -> {
+                        throw new UnsupportedOperationException();
+                    });
     public static final int START_SEQ = 100000;
     public static final int RESTAURANT_ID_1 = START_SEQ + 2;
     public static final int NOT_FOUND = 10;

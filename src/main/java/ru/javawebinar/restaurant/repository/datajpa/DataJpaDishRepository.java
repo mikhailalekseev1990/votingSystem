@@ -27,13 +27,13 @@ public class DataJpaDishRepository implements DishRepository {
     }
 
     @Override
-    public boolean delete(int id, int r_id) {
-        return crudDishRepository.delete(id, r_id) != 0;
+    public boolean delete(int d_id, int r_id) {
+        return crudDishRepository.delete(d_id, r_id) != 0;
     }
 
     @Override
-    public Dish get(int id, int r_id) {
-        return crudDishRepository.findById(id).filter(dish -> dish.getRestaurant().getId() == r_id)
+    public Dish get(int d_id, int r_id) {
+        return crudDishRepository.findById(d_id).filter(dish -> dish.getRestaurant().getId() == r_id)
                 .orElse(null);
     }
 
@@ -42,8 +42,13 @@ public class DataJpaDishRepository implements DishRepository {
         return crudDishRepository.getAll(r_id);
     }
 
-    public Dish getWithRestaurant(int id, int rId){
-        return crudDishRepository.getWithRestaurant(id, rId);
+    @Override
+    public List<Dish> getAll( ) {
+        return crudDishRepository.getAll();
+    }
+
+    public Dish getWithRestaurant(int d_id, int r_id){
+        return crudDishRepository.getWithRestaurant(d_id, r_id);
     }
 
 }

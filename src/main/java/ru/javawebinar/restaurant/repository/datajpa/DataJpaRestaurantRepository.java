@@ -27,13 +27,13 @@ public class DataJpaRestaurantRepository implements RestaurantRepository {
     }
 
     @Override
-    public boolean delete(int id, int u_id) {
-        return crudRestaurantRepository.delete(id, u_id) != 0;
+    public boolean delete(int r_id, int u_id) {
+        return crudRestaurantRepository.delete(r_id, u_id) != 0;
     }
 
     @Override
-    public Restaurant get(int id, int u_id) {
-        return crudRestaurantRepository.findById(id)
+    public Restaurant get(int r_id, int u_id) {
+        return crudRestaurantRepository.findById(r_id)
                 .filter(restaurant -> restaurant.getUser().getId() == u_id).orElse(null);
     }
 
@@ -47,12 +47,18 @@ public class DataJpaRestaurantRepository implements RestaurantRepository {
         return crudRestaurantRepository.getAll();
     }
 
-    public Restaurant getWithDishes(int id) {
-        return crudRestaurantRepository.getWithDishes(id);
+    @Override
+    public Restaurant getWithDishes(int r_id) {
+        return crudRestaurantRepository.getWithDishes(r_id);
     }
 
-    public Restaurant getWithUser(int id, int uId) {
-        return crudRestaurantRepository.getWithUser(id, uId);
+    @Override
+    public List<Restaurant> getAllWithDishes() {
+        return crudRestaurantRepository.getAllWithDishes();
+    }
+
+    public Restaurant getWithUser(int r_id, int u_id) {
+        return crudRestaurantRepository.getWithUser(r_id, u_id);
     }
 
 }

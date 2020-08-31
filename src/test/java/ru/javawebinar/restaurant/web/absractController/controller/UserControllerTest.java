@@ -46,20 +46,16 @@ public class UserControllerTest {
     }
 
     @Test
-    public void delete() throws Exception {
-        userRepository.delete(USER_ID);
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(userRepository.get(USER_ID), USER_ID));
-    }
-
-    @Test
-    public void deletedNotFound() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(userRepository.delete(NOT_FOUND), NOT_FOUND));
-    }
-
-    @Test
     public void get() throws Exception {
         User user = userRepository.get(ADMIN_ID);
         USER_MATCHER.assertMatch(user, ADMIN);
+    }
+
+
+    @Test
+    public void getAll() throws Exception {
+        List<User> all = userRepository.getAll();
+        USER_MATCHER.assertMatch(all, ADMIN, USER);
     }
 
     @Test
@@ -80,10 +76,17 @@ public class UserControllerTest {
         USER_MATCHER.assertMatch(userRepository.get(USER_ID), getUpdated());
     }
 
+
     @Test
-    public void getAll() throws Exception {
-        List<User> all = userRepository.getAll();
-        USER_MATCHER.assertMatch(all, ADMIN, USER);
+    public void delete() throws Exception {
+        userRepository.delete(USER_ID);
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(userRepository.get(USER_ID), USER_ID));
     }
+
+    @Test
+    public void deletedNotFound() throws Exception {
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(userRepository.delete(NOT_FOUND), NOT_FOUND));
+    }
+
 
 }

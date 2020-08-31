@@ -54,18 +54,19 @@
                         <c:forEach items="${restaurant.dishes}" var="dish">
                             <jsp:useBean id="dish" type="ru.javawebinar.restaurant.model.Dish"/>
                             <p>
+<%--                                <c:if test="${restaurant.id==dish.restaurant.id}">--%>
                                 <tr>
                                     <td>${dish.id}</td>
                                     <td>${dish.restaurant.id}</td>
-                                    <td>${dish.dish}</td>
+                                    <td>${dish.name}</td>
                                     <td>${dish.price}</td>
                                     <td><a href="dish/dish_update?d_id=${dish.id}&r_id=${restaurant.id}">Update</a>
                                     </td>
                                     <td><a href="dish/dish_delete?d_id=${dish.id}&r_id=${restaurant.id}">Delete</a>
                                     </td>
                                 </tr>
+<%--                                </c:if>--%>
                             </p>
-
                         </c:forEach>
                     </table>
                 </td>

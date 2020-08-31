@@ -36,7 +36,6 @@ public abstract class AbstractDishController {
     }
 
     public void update(Dish dish, int id, int r_id) {
-        int u_id = SecurityUtil.authu_id();
         assureIdConsistent(dish, id);
         LOG.info("update dish {} for restaurant {}", id, r_id);
         Assert.notNull(dish, "dish must not be null");
@@ -44,9 +43,8 @@ public abstract class AbstractDishController {
     }
 
     public List<Dish> getAll(int r_id) {
-        int u_id = SecurityUtil.authu_id();
         LOG.info("getAll dish for restaurant {}", r_id);
-        return dishRepository.getAll(u_id);
+        return dishRepository.getAll(r_id);
     }
 
 }

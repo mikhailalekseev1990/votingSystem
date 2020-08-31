@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
+import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.repository.UserRepository;
 import ru.javawebinar.restaurant.web.SecurityUtil;
@@ -52,6 +53,12 @@ public abstract class AbstractUserController {
         Assert.notNull(email, "email must not be null");
         return checkNotFound(userRepository.getByEmail(email), "email=" + email);
     }
+
+    public User getWithRestaurants(int id) {
+        LOG.info("getWithMeals {}", id);
+        return checkNotFoundWithId(userRepository.getWithRestaurants(id), id);
+    }
+
 
 }
 

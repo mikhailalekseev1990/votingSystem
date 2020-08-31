@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = UserRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRestController extends AbstractUserController {
-    public static final String REST_URL = "/rest/user";
+    public static final String REST_URL = "/rest/profile/user";
 
     @GetMapping
     public List<User> getAll() {
@@ -55,8 +55,8 @@ public class UserRestController extends AbstractUserController {
         return super.getByMail(email);
     }
 
-    @GetMapping("/{id}/with-meals")
+    @GetMapping("/{id}/with-restaurants")
     public User getWithRestaurants(@PathVariable int id) {
-        return null; //TODO
+        return super.getWithRestaurants(id); //TODO
     }
 }

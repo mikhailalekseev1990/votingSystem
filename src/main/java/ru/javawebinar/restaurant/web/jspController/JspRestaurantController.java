@@ -6,6 +6,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.web.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
@@ -52,9 +53,11 @@ public class JspRestaurantController extends AbstractRestaurantController {
 
     @GetMapping
     public String getAll(Model model) {
-        List<Restaurant> restaurants = super.getAll();
+        List<Restaurant> restaurants = super.getAllWithDishes();
+
         model.addAttribute("user", super.getUser(SecurityUtil.authu_id()));
         model.addAttribute("restaurants", restaurants);
+
         return "restaurants";
     }
 

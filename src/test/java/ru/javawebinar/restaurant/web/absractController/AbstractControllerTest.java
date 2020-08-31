@@ -30,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 })
 //@WebAppConfiguration
 //@ExtendWith(SpringExtension.class)
-@Transactional
 @RunWith(SpringRunner.class)
 abstract public class AbstractControllerTest {
     private static final Locale RU_LOCALE = new Locale("ru");

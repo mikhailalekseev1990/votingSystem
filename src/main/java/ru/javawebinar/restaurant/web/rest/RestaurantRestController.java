@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = RestaurantRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestaurantRestController extends AbstractRestaurantController {
-   public static final String REST_URL = "/rest/restaurants";
+   public static final String REST_URL = "/rest/profile/restaurants";
 
     @GetMapping
     public List<Restaurant> getAll() {
@@ -22,37 +22,37 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Restaurant get(@PathVariable int id) {
-        return super.get(id);
+    @GetMapping("/{r_id}")
+    public Restaurant get(@PathVariable int r_id) {
+        return super.get(r_id);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Restaurant> createWithLocation( @RequestBody Restaurant restaurant) {
         Restaurant created = super.create(restaurant);
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path(REST_URL + "/{id}")
+                .path(REST_URL + "/{r_id}")
                 .buildAndExpand(created.getId()).toUri();
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
     @Override
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{r_id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable int id) {
-        super.delete(id);
+    public void delete(@PathVariable int r_id) {
+        super.delete(r_id);
     }
 
     @Override
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{r_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void update(@RequestBody Restaurant restaurant, @PathVariable int id) {
-        super.update(restaurant, id);
+    public void update(@RequestBody Restaurant restaurant, @PathVariable int r_id) {
+        super.update(restaurant, r_id);
     }
 
 
-    @GetMapping("/{id}/with-dishes")
-    public Restaurant getWithDishes(@PathVariable int id) {
-        return super.getWithDishes(id);
+    @GetMapping("/{r_id}/with-dishes")
+    public Restaurant getWithDishes(@PathVariable int r_id) {
+        return super.getWithDishes(r_id);
     }
 }

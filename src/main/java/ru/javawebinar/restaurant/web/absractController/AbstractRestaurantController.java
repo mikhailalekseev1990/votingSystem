@@ -7,6 +7,7 @@ import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.model.Role;
 import ru.javawebinar.restaurant.model.User;
+import ru.javawebinar.restaurant.repository.DishRepository;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
 import ru.javawebinar.restaurant.repository.UserRepository;
 import ru.javawebinar.restaurant.web.SecurityUtil;
@@ -21,6 +22,9 @@ public abstract class AbstractRestaurantController {
 
     @Autowired
     RestaurantRepository restaurantRepository;
+
+    @Autowired
+    DishRepository dishRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -60,9 +64,9 @@ public abstract class AbstractRestaurantController {
 
     public List<Restaurant> getAll() {
         int u_id = SecurityUtil.authu_id();
-       Set<Role> role = getUser(u_id).getRoles();
+        Set<Role> role = getUser(u_id).getRoles();
         boolean isAdmin = role.contains(Role.ADMIN);
-        LOG.info("isAdmin = {} for user {}",isAdmin, u_id);
+        LOG.info("isAdmin = {} for user {}", isAdmin, u_id);
         if (isAdmin) {
             LOG.info("getAll restaurants for user {}", u_id);
             return restaurantRepository.getAll(u_id);
@@ -79,5 +83,10 @@ public abstract class AbstractRestaurantController {
     public Restaurant getWithDishes(int id) {
         LOG.info("getWithMeals {}", id);
         return checkNotFoundWithId(restaurantRepository.getWithDishes(id), id);
+    }
+
+    public List<Restaurant> getAllWithDishes() {
+        LOG.info("getAllWithDishes");
+        return restaurantRepository.getAllWithDishes();
     }
 }

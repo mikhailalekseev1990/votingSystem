@@ -27,13 +27,13 @@ public class DataJpaUserRepository implements UserRepository {
     }
 
     @Override
-    public boolean delete(int id) {
-        return crudRepository.delete(id) != 0;
+    public boolean delete(int u_id) {
+        return crudRepository.delete(u_id) != 0;
     }
 
     @Override
-    public User get(int id) {
-        return crudRepository.findById(id).orElse(null);
+    public User get(int u_id) {
+        return crudRepository.findById(u_id).orElse(null);
     }
 
     @Override
@@ -46,6 +46,10 @@ public class DataJpaUserRepository implements UserRepository {
         return crudRepository.findAll(SORT_NAME_EMAIL);
     }
 
+    @Override
+    public User getWithRestaurants(int u_id) {
+        return crudRepository.getWithRestaurants(u_id);
+    }
 
     @Override  //TODO right vote(after double click vote change)
     public void vote(int u_id, int r_id) {
