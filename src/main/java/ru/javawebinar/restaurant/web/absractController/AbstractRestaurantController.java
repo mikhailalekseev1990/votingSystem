@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
+import static ru.javawebinar.restaurant.web.SecurityUtil.authu_id;
 
 public abstract class AbstractRestaurantController {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractRestaurantController.class);
@@ -62,12 +63,8 @@ public abstract class AbstractRestaurantController {
     }
 
 
-    public List<Restaurant> getAll() {
-        int u_id = SecurityUtil.authu_id();
-        Set<Role> role = getUser(u_id).getRoles();
-        boolean isAdmin = role.contains(Role.ADMIN);
-        LOG.info("isAdmin = {} for user {}", isAdmin, u_id);
-        if (isAdmin) {
+    public List<Restaurant> getAll(int u_id) {
+        if (checkRole(u_id)) {
             LOG.info("getAll restaurants for user {}", u_id);
             return restaurantRepository.getAll(u_id);
         }
@@ -85,8 +82,16 @@ public abstract class AbstractRestaurantController {
         return checkNotFoundWithId(restaurantRepository.getWithDishes(id), id);
     }
 
-    public List<Restaurant> getAllWithDishes() {
+    public List<Restaurant> getAllWithDishes(int u_id) {
         LOG.info("getAllWithDishes");
+        if (checkRole(u_id)) {
+            return restaurantRepository.getAllWithDishesByUser(u_id);
+        }
         return restaurantRepository.getAllWithDishes();
+    }
+
+    private boolean checkRole(int u_id) {
+        Set<Role> role = getUser(u_id).getRoles();
+        return role.contains(Role.RESTAURANT_ADMIN);
     }
 }

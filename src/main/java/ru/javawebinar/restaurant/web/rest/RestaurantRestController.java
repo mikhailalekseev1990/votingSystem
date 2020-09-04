@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.restaurant.model.Restaurant;
+import ru.javawebinar.restaurant.web.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
 import java.net.URI;
@@ -18,7 +19,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
 
     @GetMapping
     public List<Restaurant> getAll() {
-        return super.getAll();
+        return super.getAll(SecurityUtil.authu_id());
     }
 
     @Override

@@ -4,7 +4,7 @@ package ru.javawebinar.restaurant.web;
 
 public class SecurityUtil {
 
-    private static int id = 100_000;
+    private static int id = 100_001;
 
     private SecurityUtil() {
     }

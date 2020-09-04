@@ -47,15 +47,15 @@ public class UserControllerTest {
 
     @Test
     public void get() throws Exception {
-        User user = userRepository.get(ADMIN_ID);
-        USER_MATCHER.assertMatch(user, ADMIN);
+        User user = userRepository.get(RESTAURANT_ADMIN_ID);
+        USER_MATCHER.assertMatch(user, RESTAURANT_ADMIN);
     }
 
 
     @Test
     public void getAll() throws Exception {
         List<User> all = userRepository.getAll();
-        USER_MATCHER.assertMatch(all, ADMIN, USER);
+        USER_MATCHER.assertMatch(all, RESTAURANT_ADMIN, USER);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class UserControllerTest {
     @Test
     public void getByEmail() throws Exception {
         User user = userRepository.getByEmail("admin@gmail.com");
-        USER_MATCHER.assertMatch(user, ADMIN);
+        USER_MATCHER.assertMatch(user, RESTAURANT_ADMIN);
     }
 
     @Test

@@ -7,17 +7,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.javawebinar.restaurant.Utils.exception.NotFoundException;
 import ru.javawebinar.restaurant.repository.UserRepository;
 import ru.javawebinar.restaurant.web.absractController.AbstractControllerTest;
-import ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData;
-import ru.javawebinar.restaurant.web.rest.RestaurantRestController;
 import ru.javawebinar.restaurant.web.rest.UserRestController;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
 import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.*;
-import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.ADMIN;
+import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.RESTAURANT_ADMIN;
 import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.USER;
 
 public class UserRestControllerTest extends AbstractControllerTest {
@@ -76,6 +73,6 @@ public class UserRestControllerTest extends AbstractControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(USER_WITH_RESTAURANTS_MATCHER.contentJson(ADMIN));
+                .andExpect(USER_WITH_RESTAURANTS_MATCHER.contentJson(RESTAURANT_ADMIN));
     }
 }

@@ -13,7 +13,7 @@
 </head>
 <body>
 <section>
-    <h3><a href="index.jsp">Home</a></h3>
+    <h3><a href="test.jsp">Home</a></h3>
     <hr>
     <h2>${param.action == 'dish_create' ? 'Create dish' : 'Edit dish'}</h2>
     <jsp:useBean id="dish" class="ru.javawebinar.restaurant.model.Dish" scope="request"/>

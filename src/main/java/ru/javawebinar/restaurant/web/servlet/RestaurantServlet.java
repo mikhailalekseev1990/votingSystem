@@ -4,6 +4,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 import ru.javawebinar.restaurant.model.Restaurant;
+import ru.javawebinar.restaurant.web.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractDishController;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
@@ -67,8 +68,7 @@ public class RestaurantServlet extends HttpServlet {
             }
             default -> {
 //                int r_id = Integer.parseInt(request.getParameter("r_id"));
-                request.setAttribute("restaurants", restaurantController.getAll());
-//                request.setAttribute("dishes", restaurantController.get(100_003).getDishes());
+                request.setAttribute("restaurants", restaurantController.getAll(SecurityUtil.authu_id()));
                 request.getRequestDispatcher("/restaurants.jsp").forward(request, response);
             }
         }

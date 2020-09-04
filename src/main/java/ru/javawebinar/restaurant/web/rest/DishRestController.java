@@ -47,7 +47,7 @@ public class DishRestController extends AbstractDishController {
         Dish created = super.create(dish, r_id);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path(REST_URL + "/dishes/{d_id}")
+                .path(REST_URL + "/restaurant/"+r_id+"/dishes/{d_id}")
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);

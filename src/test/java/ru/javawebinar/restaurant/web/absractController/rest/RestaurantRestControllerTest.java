@@ -20,7 +20,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
-import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.ADMIN_ID;
 
 public class RestaurantRestControllerTest extends AbstractControllerTest {
     public static String REST_URL= RestaurantRestController.REST_URL+'/';
@@ -40,7 +39,7 @@ public class RestaurantRestControllerTest extends AbstractControllerTest {
     public void delete() throws Exception {
         perform(MockMvcRequestBuilders.delete(REST_URL + RESTAURANT_ID_1))
                 .andExpect(status().isNoContent());
-        assertThrows(NotFoundException.class, () -> restaurantRepository.get(RESTAURANT_ID_1, USER));
+        assertThrows(NotFoundException.class, () -> restaurantRepository.get(RESTAURANT_ID_1, USER_ID));
     }
 
     @Test
@@ -58,7 +57,7 @@ public class RestaurantRestControllerTest extends AbstractControllerTest {
         perform(MockMvcRequestBuilders.put(REST_URL + RESTAURANT_ID_1).contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(updated)))
                 .andExpect(status().isNoContent());
-        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(RESTAURANT_ID_1, USER), updated);
+        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(RESTAURANT_ID_1, USER_ID), updated);
     }
 
     @Test
@@ -71,7 +70,7 @@ public class RestaurantRestControllerTest extends AbstractControllerTest {
         int newId = created.id();
         newRestaurant.setId(newId);
         RESTAURANT_MATCHER.assertMatch(created, newRestaurant);
-        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(newId, USER), newRestaurant);
+        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(newId, USER_ID), newRestaurant);
     }
 
     @Test

@@ -8,7 +8,7 @@ import java.util.List;
 public class DishTestData {
     public static TestMatcher<Dish> DISH_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Dish.class, "restaurant");
 
-    public static final int DISH_ID_1 = 100007;
+    public static final int DISH_ID_1 = 100008;
 
 
     public static final Dish DISH_1 = new Dish(DISH_ID_1, "dish_1_1", 1000);

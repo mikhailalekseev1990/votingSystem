@@ -29,7 +29,7 @@ public class User extends AbstractNamedEntity implements HasIdAndEmail{
 
     @Column(name = "password", nullable = false)
     @NotBlank
-    @Size(min = 5, max = 100)
+    @Size(min = 4, max = 100)
     private String password;
 
     @Column(name = "registration", nullable = false, columnDefinition = "timestamp default now()")

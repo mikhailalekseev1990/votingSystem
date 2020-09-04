@@ -17,10 +17,11 @@ public class RestaurantTestData {
                         throw new UnsupportedOperationException();
                     });
     public static final int START_SEQ = 100000;
-    public static final int RESTAURANT_ID_1 = START_SEQ + 2;
+    public static final int RESTAURANT_ID_1 = START_SEQ + 3;
     public static final int NOT_FOUND = 10;
-    public static final int USER = 100000;
-    public static final int ADMIN = 100001;
+    public static final int ADMIN_ID = 100000;
+    public static final int USER_ID = 100001;
+    public static final int RESTAURANT_ADMIN_ID = 100002;
 
     public static final Restaurant RESTAURANT_1 = new Restaurant(RESTAURANT_ID_1, "Restaurant_1");
     public static final Restaurant RESTAURANT_2 = new Restaurant(RESTAURANT_ID_1 + 1, "Restaurant_2");

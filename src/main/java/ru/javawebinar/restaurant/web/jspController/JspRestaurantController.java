@@ -51,16 +51,6 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "redirect:restaurants";
     }
 
-    @GetMapping
-    public String getAll(Model model) {
-        List<Restaurant> restaurants = super.getAllWithDishes();
-
-        model.addAttribute("user", super.getUser(SecurityUtil.authu_id()));
-        model.addAttribute("restaurants", restaurants);
-
-        return "restaurants";
-    }
-
     @GetMapping("/vote")
     public String vote(HttpServletRequest request){
         super.vote(getRestaurantId(request));

@@ -25,4 +25,6 @@ public interface RestaurantRepository {
 
     List<Restaurant> getAllWithDishes();
 
+    List<Restaurant> getAllWithDishesByUser(int u_id);
+
 }
