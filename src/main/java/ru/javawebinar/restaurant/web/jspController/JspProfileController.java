@@ -8,33 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.javawebinar.restaurant.model.Role;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.web.absractController.AbstractUserController;
+import ru.javawebinar.restaurant.web.security.SecurityUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Objects;
 
 @Controller
-@RequestMapping("/users")
-public class JspUserController extends AbstractUserController {
+@RequestMapping("/profile")
+public class JspProfileController extends AbstractUserController {
 
-    @GetMapping("/delete")
-    String delete(HttpServletRequest request) {
-        super.delete(getUserId(request));
-        return "redirect:users";
-    }
-
-    @GetMapping("/create")
+    @GetMapping
     String create(Model model, HttpServletRequest request) {
         User user = new User("", "", "", Role.USER);
         model.addAttribute("user", user);
         return "profile";
-    }
-
-    @GetMapping("/update")
-    String update(Model model, HttpServletRequest request) {
-        User user = get(getUserId(request));
-        model.addAttribute("user", user);
-        return "users";
     }
 
     @PostMapping
@@ -50,14 +37,9 @@ public class JspUserController extends AbstractUserController {
         if (request.getParameter("u_id").isEmpty()) {
             super.create(user);
         } else {
-            super.update(user, getUserId(request));
+            super.update(user, SecurityUtil.authUserid());
         }
-        return "redirect:/users";
-    }
 
-    private int getUserId(HttpServletRequest request) {
-        String paramId = Objects.requireNonNull(request.getParameter("u_id"));
-        return Integer.parseInt(paramId);
+        return "redirect:/login?message=registered&username=" + user.getEmail();
     }
-
 }

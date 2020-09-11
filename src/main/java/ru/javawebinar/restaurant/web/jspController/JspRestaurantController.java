@@ -6,13 +6,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.web.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Objects;
 
 @Controller

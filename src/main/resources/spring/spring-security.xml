@@ -16,26 +16,24 @@
 
     <http>
         <intercept-url pattern="/login" access="permitAll()"/>
+        <intercept-url pattern="/profile" access="permitAll()"/>
         <intercept-url pattern="/**/admin/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/**/users/**" access="hasRole('ADMIN')"/>
         <intercept-url pattern="/**" access="isAuthenticated()"/>
-<!--        <form-login/>-->
-        <form-login login-page="/login" default-target-url="/restaurants"
-        authentication-failure-url="/login?error=true"
-        login-processing-url="/spring_security_check"/>
+        <!--        <form-login/>-->
+        <form-login login-page="/login" default-target-url="/"
+                    authentication-failure-url="/login?error=true"
+                    login-processing-url="/spring_security_check"/>
         <logout/>
         <csrf disabled="true"/>
     </http>
 
-    <beans:bean name="noopEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
+    <beans:bean name="noopEncoder" class="org.springframework.security.crypto.factory.PasswordEncoderFactories" id="encoder" factory-method="createDelegatingPasswordEncoder"/>
 
     <authentication-manager>
-        <authentication-provider>
-            <password-encoder ref="noopEncoder"/>
-            <user-service>
-                <user name="user@yandex.ru" password="user" authorities="ROLE_USER"/>
-                <user name="admin@gmail.com" password="admin" authorities="ROLE_ADMIN"/>
-                <user name="admin@restaurant1.com" password="restaurant1" authorities="ROLE_RESTAURANT_ADMIN"/>
-            </user-service>
+        <authentication-provider user-service-ref="userService">
+            <password-encoder ref="encoder"/>
+
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

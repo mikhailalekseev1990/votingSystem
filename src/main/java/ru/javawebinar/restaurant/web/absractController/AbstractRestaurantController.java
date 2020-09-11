@@ -10,13 +10,12 @@ import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.repository.DishRepository;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
 import ru.javawebinar.restaurant.repository.UserRepository;
-import ru.javawebinar.restaurant.web.SecurityUtil;
+import ru.javawebinar.restaurant.web.security.SecurityUtil;
 
 import java.util.List;
 import java.util.Set;
 
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
-import static ru.javawebinar.restaurant.web.SecurityUtil.authu_id;
 
 public abstract class AbstractRestaurantController {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractRestaurantController.class);
@@ -35,19 +34,19 @@ public abstract class AbstractRestaurantController {
     }
 
     public Restaurant get(int id) {
-        int u_id = SecurityUtil.authu_id();
+        int u_id = SecurityUtil.authUserid();
         LOG.info("get restaurant {} for user {}", id, u_id);
         return checkNotFoundWithId(restaurantRepository.get(id, u_id), id);
     }
 
     public void delete(int id) {
-        int u_id = SecurityUtil.authu_id();
+        int u_id = SecurityUtil.authUserid();
         LOG.info("delete restaurant {} for user {}", id, u_id);
         checkNotFoundWithId(restaurantRepository.delete(id, u_id), id);
     }
 
     public Restaurant create(Restaurant restaurant) {
-        int u_id = SecurityUtil.authu_id();
+        int u_id = SecurityUtil.authUserid();
         checkNew(restaurant);
         LOG.info("create restaurant for user {}", u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
@@ -55,7 +54,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public void update(Restaurant restaurant, int id) {
-        int u_id = SecurityUtil.authu_id();
+        int u_id = SecurityUtil.authUserid();
         assureIdConsistent(restaurant, id);
         LOG.info("update restaurant {} for user {}", id, u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
@@ -72,7 +71,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public void vote(int r_id) {
-        int u_id = SecurityUtil.authu_id();
+        int u_id = SecurityUtil.authUserid();
         LOG.info("vote user {} for restaurant {}", u_id, r_id);
         userRepository.vote(u_id, r_id);
     }

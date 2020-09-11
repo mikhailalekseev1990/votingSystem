@@ -18,9 +18,13 @@ import java.util.*;
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 @Getter
 @Setter
-@ToString
 //@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
-public class User extends AbstractNamedEntity implements HasIdAndEmail{
+public class User extends AbstractBaseEntity {
+
+    @NotBlank
+    @Size(min = 2, max = 100)
+    @Column(name = "name", nullable = false)
+    protected String name;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
@@ -31,6 +35,9 @@ public class User extends AbstractNamedEntity implements HasIdAndEmail{
     @NotBlank
     @Size(min = 4, max = 100)
     private String password;
+
+    @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
+    private boolean enabled = true;
 
     @Column(name = "registration", nullable = false, columnDefinition = "timestamp default now()")
     @NotNull
@@ -63,17 +70,23 @@ public class User extends AbstractNamedEntity implements HasIdAndEmail{
     }
 
     public User(User u) {
-        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.getRegistration(), u.isVote(), u.getVoteTime(), u.getVote_restaurant_id(), u.getRoles());
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.isEnabled(), u.getRegistration(), u.isVote(), u.getVoteTime(), u.getVote_restaurant_id(), u.getRoles());
     }
 
-    public User(Integer id, String name, String email, String password, Role role, Role... roles) {
-        this(id, name, email, password, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
+    public User(String name, String email, String password,   Role role, Role... roles) {
+        this(null, name, email, password,true, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
     }
 
-    public User(Integer id, String name, String email, String password, Date registration, boolean vote, LocalDateTime voteTime, Integer vote_restaurant_id, Collection<Role> roles) {
-        super(id, name);
+    public User(Integer id, String name, String email, String password,   Role role, Role... roles) {
+        this(id, name, email, password,true, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
+    }
+
+    public User(Integer id, String name, String email, String password, Boolean enabled, Date registration, boolean vote, LocalDateTime voteTime, Integer vote_restaurant_id, Collection<Role> roles) {
+        super(id);
+        this.name = name;
         this.email = email;
         this.password = password;
+        this.enabled = enabled;
         this.registration = registration;
         this.vote = vote;
         this.voteTime = voteTime;
@@ -83,5 +96,20 @@ public class User extends AbstractNamedEntity implements HasIdAndEmail{
 
     public void setRoles(Collection<Role> roles) {
         this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", enabled=" + enabled +
+                ", registration=" + registration +
+                ", vote=" + vote +
+                ", voteTime=" + voteTime +
+                ", vote_restaurant_id=" + vote_restaurant_id +
+                ", roles=" + roles +
+                '}';
     }
 }

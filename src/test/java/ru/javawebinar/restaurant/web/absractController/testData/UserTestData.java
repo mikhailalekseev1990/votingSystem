@@ -12,11 +12,11 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserTestData {
-    public static TestMatcher<User> USER_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(User.class,"registration", "voteTime", "restaurants");
+    public static TestMatcher<User> USER_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(User.class, "registration", "voteTime", "restaurants");
     public static TestMatcher<User> USER_WITH_RESTAURANTS_MATCHER =
             TestMatcher.usingAssertions(User.class,
                     (a, e) -> assertThat(a).usingRecursiveComparison()
-                    .ignoringFields("registration", "voteTime").ignoringAllOverriddenEquals().isEqualTo(e),
+                            .ignoringFields("registration", "voteTime").ignoringAllOverriddenEquals().isEqualTo(e),
                     (a, e) -> {
                         throw new UnsupportedOperationException();
                     });
@@ -33,7 +33,7 @@ public class UserTestData {
 
 
     public static User getNew() {
-        return new User(null, "New", "new@gmail.com", "newPass", new Date(), true, LocalDateTime.now(), 0, Collections.singleton(Role.USER));
+        return new User(null, "New", "new@gmail.com", "newPass", true, new Date(), true, LocalDateTime.now(), 0, Collections.singleton(Role.USER));
     }
 
     public static User getUpdated() {

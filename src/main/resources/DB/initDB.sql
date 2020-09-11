@@ -14,6 +14,7 @@ CREATE TABLE users
     name               VARCHAR                                                  NOT NULL,
     email              VARCHAR                                                  NOT NULL,
     password           VARCHAR                                                  NOT NULL,
+    enabled            BOOLEAN             DEFAULT TRUE                         NOT NULL,
     registration       TIMESTAMP           DEFAULT now()                        NOT NULL,
     vote               BOOLEAN             DEFAULT TRUE                         NOT NULL,
     vote_time          TIMESTAMP           DEFAULT '1000-01-30 10:00:00.000000' NOT NULL,

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.repository.DishRepository;
-import ru.javawebinar.restaurant.web.SecurityUtil;
 
 import java.util.List;
 
