@@ -1,38 +1,30 @@
 package ru.javawebinar.restaurant.model;
 
-import org.springframework.util.Assert;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.util.CollectionUtils;
+import ru.javawebinar.restaurant.Utils.LocalDateTimePersistenceConverter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
-
-@NamedQueries({
-        @NamedQuery(name = User.DELETE, query = "DELETE FROM User u WHERE u.id=:id"),
-        @NamedQuery(name = User.BY_EMAIL, query = "SELECT u FROM User u LEFT JOIN FETCH u.role WHERE u.email=?1"),
-        @NamedQuery(name = User.ALL_SORTED, query = "SELECT u FROM User u LEFT JOIN FETCH u.role ORDER BY u.name, u.email"),
-})
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Entity
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
-public class User {
+@Getter
+@Setter
+//@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
+public class User extends AbstractBaseEntity {
 
-    public static final String DELETE = "User.delete";
-    public static final String BY_EMAIL = "User.getByEmail";
-    public static final String ALL_SORTED = "User.getAllSorted";
-
-    @Id
-    @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100_000)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
-    private Integer id;
-
-    @Column(name = "name", nullable = false)
     @NotBlank
     @Size(min = 2, max = 100)
-    private String name;
+    @Column(name = "name", nullable = false)
+    protected String name;
 
     @Column(name = "email", nullable = false, unique = true)
     @Email
@@ -41,8 +33,11 @@ public class User {
 
     @Column(name = "password", nullable = false)
     @NotBlank
-    @Size(min = 5, max = 100)
+    @Size(min = 4, max = 100)
     private String password;
+
+    @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
+    private boolean enabled = true;
 
     @Column(name = "registration", nullable = false, columnDefinition = "timestamp default now()")
     @NotNull
@@ -51,87 +46,70 @@ public class User {
     @Column(name = "vote", nullable = false, columnDefinition = "bool default true")
     private boolean vote;
 
-    @Column(name = "voteTime", nullable = false)
+    @Column(name = "vote_time", nullable = false)
     @NotNull
-    private Date voteTime = new Date();
+    @Convert(converter = LocalDateTimePersistenceConverter.class)
+    private LocalDateTime voteTime;
+
+    @Column(name = "vote_restaurant_id", nullable = false)
+    @NotNull
+    private int vote_restaurant_id;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OrderBy("id")
+    private List<Restaurant> restaurants;
 
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "role"}, name = "user_roles_unique_idx")})
     @Column(name = "role")
     @ElementCollection(fetch = FetchType.EAGER)
-    private Set<Role> role;
+    private Set<Role> roles;
 
-    public int id() {
-        Assert.notNull(id, "Entity must has id");
-        return id;
+    public User() {
     }
 
-    public boolean isNew() {
-        return this.id == null;
+    public User(User u) {
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.isEnabled(), u.getRegistration(), u.isVote(), u.getVoteTime(), u.getVote_restaurant_id(), u.getRoles());
     }
 
-    public Integer getId() {
-        return id;
+    public User(String name, String email, String password,   Role role, Role... roles) {
+        this(null, name, email, password,true, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public User(Integer id, String name, String email, String password,   Role role, Role... roles) {
+        this(id, name, email, password,true, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public User(Integer id, String name, String email, String password, Boolean enabled, Date registration, boolean vote, LocalDateTime voteTime, Integer vote_restaurant_id, Collection<Role> roles) {
+        super(id);
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Date getRegistration() {
-        return registration;
-    }
-
-    public void setRegistration(Date registration) {
+        this.enabled = enabled;
         this.registration = registration;
-    }
-
-    public boolean isVote() {
-        return vote;
-    }
-
-    public void setVote(boolean vote) {
         this.vote = vote;
-    }
-
-    public Date getVoteTime() {
-        return voteTime;
-    }
-
-    public void setVoteTime(Date voteTime) {
         this.voteTime = voteTime;
+        this.vote_restaurant_id = vote_restaurant_id;
+        setRoles(roles);
     }
 
-    public Set<Role> getRole() {
-        return role;
+    public void setRoles(Collection<Role> roles) {
+        this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
     }
 
-    public void setRole(Set<Role> role) {
-        this.role = role;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", enabled=" + enabled +
+                ", registration=" + registration +
+                ", vote=" + vote +
+                ", voteTime=" + voteTime +
+                ", vote_restaurant_id=" + vote_restaurant_id +
+                ", roles=" + roles +
+                '}';
     }
 }

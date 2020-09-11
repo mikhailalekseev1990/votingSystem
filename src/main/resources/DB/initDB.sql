@@ -10,13 +10,15 @@ CREATE SEQUENCE global_seq START WITH 100000;
 
 CREATE TABLE users
 (
-    id           INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
-    name         VARCHAR                           NOT NULL,
-    email        VARCHAR                           NOT NULL,
-    password     VARCHAR                           NOT NULL,
-    registration TIMESTAMP           DEFAULT now() NOT NULL,
-    vote         BOOLEAN             DEFAULT TRUE  NOT NULL,
-    voteTime     TIMESTAMP           DEFAULT now() NOT NULL
+    id                 INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+    name               VARCHAR                                                  NOT NULL,
+    email              VARCHAR                                                  NOT NULL,
+    password           VARCHAR                                                  NOT NULL,
+    enabled            BOOLEAN             DEFAULT TRUE                         NOT NULL,
+    registration       TIMESTAMP           DEFAULT now()                        NOT NULL,
+    vote               BOOLEAN             DEFAULT TRUE                         NOT NULL,
+    vote_time          TIMESTAMP           DEFAULT '1000-01-30 10:00:00.000000' NOT NULL,
+    vote_restaurant_id INTEGER             DEFAULT 0
 
 );
 
@@ -35,7 +37,7 @@ CREATE TABLE restaurants
     id      INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     user_id INTEGER NOT NULL,
     name    VARCHAR NOT NULL,
-    voteSum INTEGER             DEFAULT 0,
+--     voteSum INTEGER             DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 
 );
@@ -44,7 +46,7 @@ CREATE TABLE menu
 (
     id            INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
     restaurant_id INTEGER          NOT NULL,
-    dish          VARCHAR          NOT NULL,
+    name          VARCHAR          NOT NULL,
     price         DOUBLE PRECISION not null,
     FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE
 );
