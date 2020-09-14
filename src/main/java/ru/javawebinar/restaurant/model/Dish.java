@@ -17,16 +17,16 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 //@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
-public class Dish extends AbstractBaseEntity{
+public class Dish extends AbstractBaseEntity {
 
     @NotBlank
     @Size(min = 2, max = 100)
     @Column(name = "name", nullable = false)
     protected String name;
 
-    @Column(name = "price",  nullable = false)
+    @Column(name = "price", nullable = false)
     @NotNull
-    private int price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
@@ -41,10 +41,10 @@ public class Dish extends AbstractBaseEntity{
     public Dish(Integer id, String name, Integer price) {
         this.id = id;
         this.name = name;
-        this.price=price;
+        this.price = price;
     }
 
-    public Dish( String name, Integer price) {
+    public Dish(String name, Integer price) {
         this(null, name, price);
     }
 
@@ -52,7 +52,7 @@ public class Dish extends AbstractBaseEntity{
     public String toString() {
         return "Dish{" +
                 "id=" + id +
-                ", name='" + name  +
+                ", name=" + name  +
                 ", price=" + price +
                 '}';
     }

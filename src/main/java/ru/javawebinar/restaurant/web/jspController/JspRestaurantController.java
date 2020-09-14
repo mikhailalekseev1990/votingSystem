@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.javawebinar.restaurant.model.Restaurant;
@@ -16,9 +17,9 @@ import java.util.Objects;
 @RequestMapping("/restaurants")
 public class JspRestaurantController extends AbstractRestaurantController {
 
-    @GetMapping("/delete")
-    String delete(HttpServletRequest request) {
-        super.delete(getRestaurantId(request));
+    @GetMapping("/delete/{r_id}")
+    String delete(HttpServletRequest request, @PathVariable int r_id) {
+        super.delete(r_id);
         return "redirect:/restaurants";
     }
 
@@ -29,9 +30,9 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "restaurantForm";
     }
 
-    @GetMapping("/update")
-    String update(Model model, HttpServletRequest request) {
-        Restaurant restaurant = super.get(getRestaurantId(request));
+    @GetMapping("/update/{r_id}")
+    String update(Model model, HttpServletRequest request,@PathVariable int r_id ) {
+        Restaurant restaurant = super.get(r_id);
         model.addAttribute("restaurant", restaurant);
         return "restaurantForm";
     }

@@ -9,17 +9,18 @@ import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.web.security.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = RestaurantRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestaurantRestController extends AbstractRestaurantController {
-   public static final String REST_URL = "/rest/profile/restaurants";
+   public static final String REST_URL = "/rest/restaurants";
 
     @GetMapping
     public List<Restaurant> getAll() {
-        return super.getAll(SecurityUtil.authUserid());
+        return super.getAll(SecurityUtil.authUserId());
     }
 
     @Override
@@ -55,5 +56,10 @@ public class RestaurantRestController extends AbstractRestaurantController {
     @GetMapping("/{r_id}/with-dishes")
     public Restaurant getWithDishes(@PathVariable int r_id) {
         return super.getWithDishes(r_id);
+    }
+
+    @GetMapping("/{r_id}/vote")
+    public void vote( @PathVariable int r_id){
+        super.vote(r_id);
     }
 }

@@ -18,7 +18,7 @@ import java.io.IOException;
 public class JspProfileController extends AbstractUserController {
 
     @GetMapping
-    String create(Model model, HttpServletRequest request) {
+    String create(Model model) {
         User user = new User("", "", "", Role.USER);
         model.addAttribute("user", user);
         return "profile";
@@ -37,7 +37,7 @@ public class JspProfileController extends AbstractUserController {
         if (request.getParameter("u_id").isEmpty()) {
             super.create(user);
         } else {
-            super.update(user, SecurityUtil.authUserid());
+            super.update(user, SecurityUtil.authUserId());
         }
 
         return "redirect:/login?message=registered&username=" + user.getEmail();

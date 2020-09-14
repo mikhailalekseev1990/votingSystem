@@ -8,7 +8,10 @@ import java.util.List;
 public class DishTestData {
     public static TestMatcher<Dish> DISH_MATCHER = TestMatcher.usingFieldsWithIgnoringAssertions(Dish.class, "restaurant");
 
-    public static final int DISH_ID_1 = 100008;
+    public static final int DISH_ID_1 = 100010;
+    public static final int DISH_ID_2 = 100011;
+    public static final int DISH_ID_3 = 100012;
+    public static final int DISH_ID_4 = 100013;
 
 
     public static final Dish DISH_1 = new Dish(DISH_ID_1, "dish_1_1", 1000);
@@ -26,14 +29,14 @@ public class DishTestData {
     public static final Dish DISH_13 = new Dish(DISH_ID_1 + 12, "dish_2_5", 1114);
 
     public static final List<Dish> DISHES = List.of(DISH_13, DISH_12, DISH_11, DISH_10, DISH_9, DISH_8, DISH_7, DISH_6, DISH_5, DISH_4, DISH_3, DISH_2, DISH_1);
-    public static final List<Dish> DISHES_FOR_RESTAURANT_1 = List.of(DISH_1, DISH_2, DISH_3);
+    public static final List<Dish> DISHES_FOR_RESTAURANT_2 = List.of(DISH_4, DISH_5, DISH_6);
 
     public static Dish getNew() {
-        return new Dish(null, "Create Dish", 99);
+        return new Dish(null, "Create", 99);
     }
 
     public static Dish getUpdate() {
-        return new Dish(DISH_ID_1, "Update Dish_1", 999);
+        return new Dish(DISH_ID_2, "Update Dish_1", 999);
     }
 
 }

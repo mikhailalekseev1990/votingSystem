@@ -74,7 +74,7 @@ public class User extends AbstractBaseEntity {
     }
 
     public User(String name, String email, String password,   Role role, Role... roles) {
-        this(null, name, email, password,true, new Date(), true, LocalDateTime.now(), 0, EnumSet.of(role, roles));
+        this(null, name, email, password,true, new Date(), true, LocalDateTime.parse("1000-01-01T00:00"), 0, EnumSet.of(role, roles));
     }
 
     public User(Integer id, String name, String email, String password,   Role role, Role... roles) {

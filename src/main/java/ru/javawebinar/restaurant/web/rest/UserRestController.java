@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = UserRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRestController extends AbstractUserController {
-    public static final String REST_URL = "/rest/profile/user";
+    public static final String REST_URL = "/rest/users";
 
     @GetMapping
     public List<User> getAll() {

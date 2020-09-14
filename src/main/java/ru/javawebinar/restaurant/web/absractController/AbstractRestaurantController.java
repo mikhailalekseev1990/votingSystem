@@ -34,19 +34,19 @@ public abstract class AbstractRestaurantController {
     }
 
     public Restaurant get(int id) {
-        int u_id = SecurityUtil.authUserid();
+        int u_id = SecurityUtil.authUserId();
         LOG.info("get restaurant {} for user {}", id, u_id);
         return checkNotFoundWithId(restaurantRepository.get(id, u_id), id);
     }
 
     public void delete(int id) {
-        int u_id = SecurityUtil.authUserid();
+        int u_id = SecurityUtil.authUserId();
         LOG.info("delete restaurant {} for user {}", id, u_id);
         checkNotFoundWithId(restaurantRepository.delete(id, u_id), id);
     }
 
     public Restaurant create(Restaurant restaurant) {
-        int u_id = SecurityUtil.authUserid();
+        int u_id = SecurityUtil.authUserId();
         checkNew(restaurant);
         LOG.info("create restaurant for user {}", u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
@@ -54,7 +54,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public void update(Restaurant restaurant, int id) {
-        int u_id = SecurityUtil.authUserid();
+        int u_id = SecurityUtil.authUserId();
         assureIdConsistent(restaurant, id);
         LOG.info("update restaurant {} for user {}", id, u_id);
         Assert.notNull(restaurant, "restaurant must not be null");
@@ -71,7 +71,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public void vote(int r_id) {
-        int u_id = SecurityUtil.authUserid();
+        int u_id = SecurityUtil.authUserId();
         LOG.info("vote user {} for restaurant {}", u_id, r_id);
         userRepository.vote(u_id, r_id);
     }

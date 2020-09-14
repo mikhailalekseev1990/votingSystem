@@ -39,7 +39,7 @@
                 <td>${restaurant.name}</td>
                 <td>
                     <sec:authorize access="hasRole('RESTAURANT_ADMIN')">
-                        <a href="dish/dish_create?r_id=${restaurant.id}">Add Dish</a>
+                        <a href="dish/create/${restaurant.id}">Add Dish</a>
                     </sec:authorize>
                     <table border="1" cellpadding="8" cellspacing="0">
                         <thead>
@@ -61,9 +61,9 @@
                                     <td>${dish.name}</td>
                                     <td>${dish.price}</td>
                                     <sec:authorize access="hasRole('RESTAURANT_ADMIN')">
-                                        <td><a href="dish/dish_update?d_id=${dish.id}&r_id=${restaurant.id}">Update</a>
+                                        <td><a href="dish/update/${restaurant.id}/${dish.id}">Update</a>
                                         </td>
-                                        <td><a href="dish/dish_delete?d_id=${dish.id}&r_id=${restaurant.id}">Delete</a>
+                                        <td><a href="dish/delete/${restaurant.id}/${dish.id}">Delete</a>
                                         </td>
                                     </sec:authorize>
                                 </tr>
@@ -73,8 +73,8 @@
                     </table>
                 </td>
                 <sec:authorize access="hasRole('RESTAURANT_ADMIN')">
-                    <td><a href="restaurants/update?r_id=${restaurant.id}">Update</a></td>
-                    <td><a href="restaurants/delete?r_id=${restaurant.id}">Delete</a></td>
+                    <td><a href="restaurants/update/${restaurant.id}">Update</a></td>
+                    <td><a href="restaurants/delete/${restaurant.id}">Delete</a></td>
                 </sec:authorize>
                 <sec:authorize access="hasRole('USER')">
                     <td><a href="restaurants/vote?r_id=${restaurant.id}"> Vote </a></td>

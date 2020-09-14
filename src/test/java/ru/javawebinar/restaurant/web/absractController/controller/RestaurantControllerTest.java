@@ -30,7 +30,7 @@ public class RestaurantControllerTest {
 
     @Test
     public void get() {
-        Restaurant actual = restaurantRepository.get(RESTAURANT_ID_1, USER_ID);
+        Restaurant actual = restaurantRepository.get(RESTAURANT_ID_1, RESTAURANT1_ADMIN_ID);
         RESTAURANT_MATCHER.assertMatch(actual, RESTAURANT_1);
     }
 
@@ -41,12 +41,12 @@ public class RestaurantControllerTest {
 
     @Test
     public void getNotOwn() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.get(RESTAURANT_ID_1, RESTAURANT_ADMIN_ID), RESTAURANT_ID_1));
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.get(RESTAURANT_ID_1, ADMIN_ID), RESTAURANT_ID_1));
     }
 
     @Test
     public void getAll() {
-        RESTAURANT_MATCHER.assertMatch(restaurantRepository.getAll(USER_ID), RESTAURANTS_FOR_USER);
+        RESTAURANT_MATCHER.assertMatch(restaurantRepository.getAll(RESTAURANT1_ADMIN_ID), RESTAURANTS_FOR_RESTAURANT_ADMIN);
     }
 
     @Test
@@ -62,13 +62,13 @@ public class RestaurantControllerTest {
     @Test
     public void update() {
         Restaurant updated = RestaurantTestData.getUpdate();
-        restaurantRepository.save(updated, USER_ID);
-        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(RESTAURANT_ID_1, USER_ID), RestaurantTestData.getUpdate());
+        restaurantRepository.save(updated, RESTAURANT1_ADMIN_ID);
+        RESTAURANT_MATCHER.assertMatch(restaurantRepository.get(RESTAURANT_ID_2, RESTAURANT1_ADMIN_ID), RestaurantTestData.getUpdate());
     }
 
     @Test
     public void updateNotOwn() throws Exception {
-        NotFoundException exception = assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.save(RESTAURANT_1, RESTAURANT_ADMIN_ID), RESTAURANT_ID_1));
+        NotFoundException exception = assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.save(RESTAURANT_1, ADMIN_ID), RESTAURANT_ID_1));
         String exceptionMessage = exception.getMessage();
         assertTrue(exceptionMessage.contains(ErrorType.DATA_NOT_FOUND.name()));
         assertTrue(exceptionMessage.contains(NotFoundException.NOT_FOUND_EXCEPTION));
@@ -89,7 +89,7 @@ public class RestaurantControllerTest {
 
     @Test
     public void deleteNotOwn() throws Exception {
-        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(RESTAURANT_ID_1, RESTAURANT_ADMIN_ID), NOT_FOUND));
+        assertThrows(NotFoundException.class, () -> checkNotFoundWithId(restaurantRepository.delete(RESTAURANT_ID_1, ADMIN_ID), RESTAURANT_ID_1));
     }
 
 }

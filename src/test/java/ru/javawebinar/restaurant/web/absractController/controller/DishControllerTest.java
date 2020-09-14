@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.Assert;
 import ru.javawebinar.restaurant.Utils.exception.ErrorType;
 import ru.javawebinar.restaurant.Utils.exception.NotFoundException;
 import ru.javawebinar.restaurant.model.Dish;
@@ -17,8 +18,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
 import static ru.javawebinar.restaurant.web.absractController.testData.DishTestData.*;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.NOT_FOUND;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.RESTAURANT_ID_1;
+import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
@@ -33,8 +33,8 @@ public class DishControllerTest {
 
     @Test
     public void get() {
-        Dish actual = dishRepository.get(DISH_ID_1, RESTAURANT_ID_1);
-        DISH_MATCHER.assertMatch(actual, DISH_1);
+        Dish actual = dishRepository.get(DISH_ID_1 + 3, RESTAURANT_ID_1 + 1);
+        DISH_MATCHER.assertMatch(actual, DISH_4);
     }
 
     @Test
@@ -49,11 +49,12 @@ public class DishControllerTest {
 
     @Test
     public void getAll() {
-        DISH_MATCHER.assertMatch(dishRepository.getAll(RESTAURANT_ID_1), DISHES_FOR_RESTAURANT_1);
+        DISH_MATCHER.assertMatch(dishRepository.getAll(RESTAURANT_ID_2), DISHES_FOR_RESTAURANT_2);
     }
 
     @Test
     public void create() {
+        Assert.notNull(DishTestData.getNew(), "dish must not be null");
         Dish created = dishRepository.save(DishTestData.getNew(), RESTAURANT_ID_1);
         int newId = created.id();
         Dish newDish = DishTestData.getNew();
@@ -66,12 +67,12 @@ public class DishControllerTest {
     public void update() {
         Dish updated = DishTestData.getUpdate();
         dishRepository.save(updated, RESTAURANT_ID_1);
-        DISH_MATCHER.assertMatch(dishRepository.get(DISH_ID_1, RESTAURANT_ID_1), DishTestData.getUpdate());
+        DISH_MATCHER.assertMatch(dishRepository.get(DISH_ID_2, RESTAURANT_ID_1), DishTestData.getUpdate());
     }
 
     @Test
     public void updateNotOwn() throws Exception {
-        NotFoundException exception = assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.save(DISH_1, RESTAURANT_ID_1+1), DISH_ID_1));
+        NotFoundException exception = assertThrows(NotFoundException.class, () -> checkNotFoundWithId(dishRepository.save(DISH_1, RESTAURANT_ID_1 + 1), DISH_ID_1));
         String exceptionMessage = exception.getMessage();
         assertTrue(exceptionMessage.contains(ErrorType.DATA_NOT_FOUND.name()));
         assertTrue(exceptionMessage.contains(NotFoundException.NOT_FOUND_EXCEPTION));

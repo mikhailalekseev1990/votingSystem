@@ -4,6 +4,7 @@ package ru.javawebinar.restaurant.web.jspController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.javawebinar.restaurant.model.Dish;
@@ -17,25 +18,24 @@ import java.util.Objects;
 @RequestMapping("/dish")
 public class JspDishController extends AbstractDishController {
 
-    @GetMapping("dish_delete")
-    String delete(HttpServletRequest request) {
-        super.delete(getDishId(request), getRestaurantId(request));
+    @GetMapping("delete/{r_id}/{d_id}")
+    String delete(HttpServletRequest request, @PathVariable int r_id, @PathVariable int d_id) {
+        super.delete(d_id, r_id);
         return "redirect:/restaurants";
     }
 
-    @GetMapping("/dish_create")
-    String create(Model model, HttpServletRequest request) {
+    @GetMapping("/create/{r_id}")
+    String create(Model model, HttpServletRequest request, @PathVariable int r_id) {
         Dish dish = new Dish("", 0);
-        request.setAttribute("restaurantId", getRestaurantId(request));
+        request.setAttribute("restaurantId", r_id);
         model.addAttribute("dish", dish);
         return "dishForm";
     }
 
-    @GetMapping("/dish_update")
-    String update(Model model, HttpServletRequest request) {
-        Dish dish = get(getDishId(request), getRestaurantId(request));
-//        request.setAttribute("d_id", getd_id(request));
-        request.setAttribute("restaurantId", getRestaurantId(request));
+    @GetMapping("/update/{r_id}/{d_id}")
+    String update(Model model, HttpServletRequest request, @PathVariable int r_id, @PathVariable int d_id) {
+        Dish dish = get(d_id, r_id);
+        request.setAttribute("restaurantId", r_id);
         model.addAttribute("dish", dish);
         return "dishForm";
     }

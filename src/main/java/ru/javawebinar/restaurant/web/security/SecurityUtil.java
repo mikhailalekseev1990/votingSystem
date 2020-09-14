@@ -8,7 +8,6 @@ import static java.util.Objects.requireNonNull;
 
 public class SecurityUtil {
 
-
     private SecurityUtil() {
     }
 
@@ -25,7 +24,7 @@ public class SecurityUtil {
         return requireNonNull(safeGet(), "No authorized user found");
     }
 
-    public static int authUserid() {
+    public static int authUserId() {
         return get().getUser().id();
     }
 

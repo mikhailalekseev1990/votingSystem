@@ -50,7 +50,7 @@ public class Restaurant extends AbstractBaseEntity{
     public String toString() {
         return "Restaurant{" +
                 "id=" + id +
-                ", name='" + name  +
+                ", name=" + name  +
                 '}';
     }
 }

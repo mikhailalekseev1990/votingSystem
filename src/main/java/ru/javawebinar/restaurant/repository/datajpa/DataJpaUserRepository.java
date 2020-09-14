@@ -52,7 +52,7 @@ public class DataJpaUserRepository implements UserRepository {
         return crudRepository.getWithRestaurants(u_id);
     }
 
-    @Override  //TODO right vote(after double click vote change)
+    @Override
     public void vote(int u_id, int r_id) {
         LocalDateTime now = LocalDateTime.now();
         User user = get(u_id);
@@ -60,9 +60,7 @@ public class DataJpaUserRepository implements UserRepository {
             crudRepository.isVote(false, u_id);
             crudRepository.updateVoteId(r_id, u_id);
             crudRepository.updateVoteTime(now, u_id);
-        }
-        if(isVoteTime(now.toLocalTime())){
-//            crudRepository.isVote(false, u_id);
+        } else if (isVoteTime(now.toLocalTime())) {
             crudRepository.updateVoteId(r_id, u_id);
             crudRepository.updateVoteTime(now, u_id);
         }
