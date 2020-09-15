@@ -7,10 +7,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.web.security.SecurityUtil;
 import ru.javawebinar.restaurant.web.absractController.AbstractRestaurantController;
+import ru.javawebinar.restaurant.web.security.SecurityUtil;
 
-import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.List;
 

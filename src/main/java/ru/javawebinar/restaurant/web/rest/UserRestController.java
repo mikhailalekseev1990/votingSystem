@@ -3,7 +3,6 @@ package ru.javawebinar.restaurant.web.rest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -60,6 +59,6 @@ public class UserRestController extends AbstractUserController {
 
     @GetMapping("/{id}/with-restaurants")
     public User getWithRestaurants(@PathVariable int id) {
-        return super.getWithRestaurants(id); //TODO
+        return super.getWithRestaurants(id);
     }
 }

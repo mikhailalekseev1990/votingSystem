@@ -3,18 +3,14 @@ package ru.javawebinar.restaurant.web.absractController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ru.javawebinar.restaurant.Utils.UserUtil;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.service.UserService;
 import ru.javawebinar.restaurant.to.UserTo;
-import ru.javawebinar.restaurant.web.security.AuthorizedUser;
 
 import java.util.List;
 
-import static ru.javawebinar.restaurant.Utils.ValidationUtil.*;
+import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
 
 public abstract class AbstractUserController{
     protected final Logger LOG = LoggerFactory.getLogger(getClass());

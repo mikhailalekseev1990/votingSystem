@@ -2,15 +2,13 @@ package ru.javawebinar.restaurant.repository.datajpa;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.repository.UserRepository;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
-import static ru.javawebinar.restaurant.Utils.TimeUtil.*;
+import static ru.javawebinar.restaurant.Utils.TimeUtil.isVoteTime;
 
 @Repository
 public class DataJpaUserRepository implements UserRepository {

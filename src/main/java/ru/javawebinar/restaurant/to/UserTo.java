@@ -1,14 +1,11 @@
 package ru.javawebinar.restaurant.to;
 
-import org.hibernate.validator.constraints.SafeHtml;
 import ru.javawebinar.restaurant.model.Role;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-
-import static org.hibernate.validator.constraints.SafeHtml.WhiteListType.NONE;
 
 public class UserTo implements Serializable {
     private static final long serialVersionUID = 1L;

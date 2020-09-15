@@ -2,14 +2,13 @@ package ru.javawebinar.restaurant.web.absractController;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.RequestPostProcessor;
 import ru.javawebinar.restaurant.Utils.json.JsonUtil;
 import ru.javawebinar.restaurant.model.User;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import ru.javawebinar.restaurant.web.security.AuthorizedUser;
-
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;

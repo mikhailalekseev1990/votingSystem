@@ -2,11 +2,8 @@ package ru.javawebinar.restaurant.Utils;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.util.StringUtils;
-import ru.javawebinar.restaurant.model.Role;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.to.UserTo;
-
-import java.util.List;
 
 public class UserUtil {
 

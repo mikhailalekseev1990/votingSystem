@@ -3,7 +3,6 @@ package ru.javawebinar.restaurant;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
 import java.util.Arrays;
 
 public class SpringMain {

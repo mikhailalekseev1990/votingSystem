@@ -2,7 +2,6 @@ package ru.javawebinar.restaurant.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.util.CollectionUtils;
 import ru.javawebinar.restaurant.Utils.LocalDateTimePersistenceConverter;
 

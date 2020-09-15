@@ -2,7 +2,6 @@ package testData;
 
 import ru.javawebinar.restaurant.model.Role;
 import ru.javawebinar.restaurant.model.User;
-import ru.javawebinar.restaurant.to.UserTo;
 import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 
 import java.time.LocalDateTime;

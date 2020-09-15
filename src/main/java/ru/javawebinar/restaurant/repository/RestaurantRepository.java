@@ -1,8 +1,6 @@
 package ru.javawebinar.restaurant.repository;
 
-import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.model.Restaurant;
-import ru.javawebinar.restaurant.model.User;
 
 import java.util.List;
 
