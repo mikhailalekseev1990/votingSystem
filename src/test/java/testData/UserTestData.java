@@ -1,8 +1,8 @@
-package ru.javawebinar.restaurant.web.absractController.testData;
+package testData;
 
-import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.model.Role;
 import ru.javawebinar.restaurant.model.User;
+import ru.javawebinar.restaurant.to.UserTo;
 import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 
 import java.time.LocalDateTime;
@@ -27,11 +27,11 @@ public class UserTestData {
 
     public static final User USER = new User(USER_ID, "User", "user@yandex.ru", "{noop}user", Role.USER);
     public static final User RESTAURANT_ADMIN_1 = new User(RESTAURANT_ADMIN_ID, "RESTAURANT1_ADMIN", "admin@restaurant1.ru", "{noop}restaurant1", Role.RESTAURANT_ADMIN);
-    public static final User RESTAURANT_ADMIN_2 = new User(RESTAURANT_ADMIN_ID+1, "RESTAURANT2_ADMIN", "admin@restaurant2.ru", "{noop}restaurant2", Role.RESTAURANT_ADMIN);
-    public static final User RESTAURANT_ADMIN_3 = new User(RESTAURANT_ADMIN_ID+2, "RESTAURANT3_ADMIN", "admin@restaurant3.ru", "{noop}restaurant3", Role.RESTAURANT_ADMIN);
+    public static final User RESTAURANT_ADMIN_2 = new User(RESTAURANT_ADMIN_ID + 1, "RESTAURANT2_ADMIN", "admin@restaurant2.ru", "{noop}restaurant2", Role.RESTAURANT_ADMIN);
+    public static final User RESTAURANT_ADMIN_3 = new User(RESTAURANT_ADMIN_ID + 2, "RESTAURANT3_ADMIN", "admin@restaurant3.ru", "{noop}restaurant3", Role.RESTAURANT_ADMIN);
     public static final User ADMIN = new User(ADMIN_ID, "Admin", "admin@gmail.com", "{noop}admin", Role.ADMIN);
 
-    public static final List<User> USERS = List.of(ADMIN, RESTAURANT_ADMIN_1, RESTAURANT_ADMIN_2, RESTAURANT_ADMIN_3, USER );
+    public static final List<User> USERS = List.of(ADMIN, RESTAURANT_ADMIN_1, RESTAURANT_ADMIN_2, RESTAURANT_ADMIN_3, USER);
 
 
     public static User getNew() {

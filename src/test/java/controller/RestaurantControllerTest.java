@@ -1,4 +1,4 @@
-package ru.javawebinar.restaurant.web.absractController.controller;
+package controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,12 +11,12 @@ import ru.javawebinar.restaurant.Utils.exception.ErrorType;
 import ru.javawebinar.restaurant.Utils.exception.NotFoundException;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
-import ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData;
+import testData.RestaurantTestData;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
+import static testData.RestaurantTestData.*;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",

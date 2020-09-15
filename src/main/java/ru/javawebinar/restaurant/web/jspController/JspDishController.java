@@ -1,6 +1,7 @@
 package ru.javawebinar.restaurant.web.jspController;
 
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/dish")
+@PreAuthorize("hasRole('RESTAURANT_ADMIN')")
 public class JspDishController extends AbstractDishController {
 
     @GetMapping("delete/{r_id}/{d_id}")

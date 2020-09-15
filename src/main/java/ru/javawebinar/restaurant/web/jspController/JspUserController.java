@@ -1,5 +1,6 @@
 package ru.javawebinar.restaurant.web.jspController;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +16,13 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/users")
+@PreAuthorize("hasRole('ADMIN')")
 public class JspUserController extends AbstractUserController {
 
     @GetMapping("/delete")
     String delete(HttpServletRequest request) {
         super.delete(getUserId(request));
-        return "redirect:users";
+        return "redirect:/users";
     }
 
     @GetMapping("/create")

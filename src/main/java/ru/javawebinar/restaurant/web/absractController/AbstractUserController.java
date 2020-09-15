@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import ru.javawebinar.restaurant.Utils.UserUtil;
 import ru.javawebinar.restaurant.model.User;
 import ru.javawebinar.restaurant.service.UserService;
+import ru.javawebinar.restaurant.to.UserTo;
 import ru.javawebinar.restaurant.web.security.AuthorizedUser;
 
 import java.util.List;
@@ -31,6 +33,12 @@ public abstract class AbstractUserController{
     }
 
     public User create(User user) {
+        LOG.info("create {}", user);
+        return userService.create(user);
+    }
+
+    public User create(UserTo userTo) {
+        User user = UserUtil.createNewFromTo(userTo);
         LOG.info("create {}", user);
         return userService.create(user);
     }

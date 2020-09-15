@@ -1,6 +1,5 @@
-package ru.javawebinar.restaurant.web.absractController.testData;
+package testData;
 
-import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.web.absractController.TestMatcher;
 

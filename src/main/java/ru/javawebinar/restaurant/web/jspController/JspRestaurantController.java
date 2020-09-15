@@ -1,5 +1,7 @@
 package ru.javawebinar.restaurant.web.jspController;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -17,12 +19,14 @@ import java.util.Objects;
 @RequestMapping("/restaurants")
 public class JspRestaurantController extends AbstractRestaurantController {
 
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @GetMapping("/delete/{r_id}")
     String delete(HttpServletRequest request, @PathVariable int r_id) {
         super.delete(r_id);
         return "redirect:/restaurants";
     }
 
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @GetMapping("/create")
     String create(Model model) {
         Restaurant restaurant = new Restaurant("");
@@ -30,6 +34,7 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "restaurantForm";
     }
 
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @GetMapping("/update/{r_id}")
     String update(Model model, HttpServletRequest request,@PathVariable int r_id ) {
         Restaurant restaurant = super.get(r_id);
@@ -37,6 +42,7 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "restaurantForm";
     }
 
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @PostMapping
     public String save(HttpServletRequest request) {
         Restaurant restaurant = new Restaurant(request.getParameter("restaurant_name"));
@@ -49,6 +55,7 @@ public class JspRestaurantController extends AbstractRestaurantController {
         return "redirect:restaurants";
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/vote")
     public String vote(HttpServletRequest request){
         super.vote(getRestaurantId(request));

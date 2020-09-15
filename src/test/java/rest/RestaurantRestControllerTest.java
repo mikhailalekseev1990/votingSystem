@@ -1,4 +1,4 @@
-package ru.javawebinar.restaurant.web.absractController.rest;
+package rest;
 
 
 import org.junit.Test;
@@ -12,7 +12,7 @@ import ru.javawebinar.restaurant.model.Restaurant;
 import ru.javawebinar.restaurant.repository.RestaurantRepository;
 import ru.javawebinar.restaurant.web.absractController.AbstractControllerTest;
 import ru.javawebinar.restaurant.web.absractController.TestUtil;
-import ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData;
+import testData.RestaurantTestData;
 import ru.javawebinar.restaurant.web.rest.RestaurantRestController;
 
 import static org.junit.Assert.assertThrows;
@@ -21,11 +21,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
 import static ru.javawebinar.restaurant.web.absractController.TestUtil.userHttpBasic;
-import static ru.javawebinar.restaurant.web.absractController.testData.DishTestData.DISH_ID_2;
-import static ru.javawebinar.restaurant.web.absractController.testData.DishTestData.DISH_ID_3;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.USER_ID;
-import static ru.javawebinar.restaurant.web.absractController.testData.UserTestData.*;
+import static testData.DishTestData.DISH_ID_2;
+import static testData.RestaurantTestData.*;
+import static testData.UserTestData.*;
 
 public class RestaurantRestControllerTest extends AbstractControllerTest {
     public static String REST_URL= RestaurantRestController.REST_URL+'/';

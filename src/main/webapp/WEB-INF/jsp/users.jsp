@@ -13,7 +13,6 @@
     <hr/>
         <h2>Users</h2>
         <hr/>
-        <a href="${pageContext.request.contextPath}/users/create">Add user</a>
         <br><br>
     <c:set var="user" value='${requestScope["users"]}' scope="request"/>
     <table border="1" cellpadding="8" cellspacing="0">
@@ -50,7 +49,6 @@
                 <td>${user.vote_restaurant_id}</td>
                 <td>${user.roles}</td>
 
-                <td><a href="users/update?u_id=${user.id}">Update</a></td>
                 <td><a href="users/delete?u_id=${user.id}">Delete</a></td>
 
 

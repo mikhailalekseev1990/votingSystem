@@ -9,9 +9,8 @@
 #### get User 100002 with Restaurants
 `curl -s http://localhost:8080/restaurant/rest/users/100002/with-restaurants  --user admin@gmail.com:admin`
 
-#### register Users//TODO
+#### register Users
 `curl -s -i -X POST -d '{"name":"New User","email":"test@mail.ru","password":"test-password","role":"USER"}' -H 'Content-Type:application/json;charset=UTF-8' http://localhost:8080/restaurant/rest/profile`
-
 
 #### get All Restaurants for User 100003
 `curl -s http://localhost:8080/restaurant/rest/restaurants/ --user admin@restaurant2.ru:restaurant2`
@@ -51,4 +50,3 @@
 
 #### update Dish 100010 for Restaurant 100005
 `curl -s -X PUT -d '{"name":"Updated Dish","price":3000}' -H 'Content-Type: application/json' http://localhost:8080/restaurant/rest/restaurants/100005/dishes/100010 --user admin@restaurant1.ru:restaurant1`
-

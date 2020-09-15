@@ -41,6 +41,8 @@ public class TestUtil {
         return SecurityMockMvcRequestPostProcessors.httpBasic(email, password);
     }
 
+
+
     public static RequestPostProcessor userAuth(User user) {
         return SecurityMockMvcRequestPostProcessors.authentication(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
     }

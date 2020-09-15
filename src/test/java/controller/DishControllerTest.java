@@ -1,4 +1,4 @@
-package ru.javawebinar.restaurant.web.absractController.controller;
+package controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,17 +12,17 @@ import ru.javawebinar.restaurant.Utils.exception.ErrorType;
 import ru.javawebinar.restaurant.Utils.exception.NotFoundException;
 import ru.javawebinar.restaurant.model.Dish;
 import ru.javawebinar.restaurant.repository.DishRepository;
-import ru.javawebinar.restaurant.web.absractController.testData.DishTestData;
+import testData.DishTestData;
 
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
-import static ru.javawebinar.restaurant.web.absractController.testData.DishTestData.*;
-import static ru.javawebinar.restaurant.web.absractController.testData.RestaurantTestData.*;
+import static testData.DishTestData.*;
+import static testData.RestaurantTestData.*;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
-        "classpath:spring/spring-db.xml"
+        "classpath:spring/spring-db.xml",
 })
 @RunWith(SpringRunner.class)
 @Sql(scripts = "classpath:DB/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))

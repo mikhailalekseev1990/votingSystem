@@ -3,6 +3,7 @@ package ru.javawebinar.restaurant.web.rest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.restaurant.model.Restaurant;
@@ -24,6 +25,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @Override
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @GetMapping("/{r_id}")
     public Restaurant get(@PathVariable int r_id) {
         return super.get(r_id);
@@ -39,6 +41,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @Override
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @DeleteMapping("/{r_id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int r_id) {
@@ -46,6 +49,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @Override
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @PutMapping(value = "/{r_id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void update(@RequestBody Restaurant restaurant, @PathVariable int r_id) {
@@ -53,11 +57,13 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
 
+    @PreAuthorize("hasRole('RESTAURANT_ADMIN')")
     @GetMapping("/{r_id}/with-dishes")
     public Restaurant getWithDishes(@PathVariable int r_id) {
         return super.getWithDishes(r_id);
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/{r_id}/vote")
     public void vote( @PathVariable int r_id){
         super.vote(r_id);
