@@ -25,6 +25,14 @@ The data on the choice of the restaurant and the voting time are stored in the c
 
 The user of the application can select a role(user, restaurant_admin) during registration.
 
+Running the application
+==
+Clone application or download and unzip zip-archive from github  <a href="https://github.com/mikhailalekseev1990/votingSystem>voting system</a>.
+In the terminal, go to the folder with the application. 
+Run the command "mvn clean package".
+After message "BUILD SUCCESS" run command "mvn cargo:run". 
+In the browser go to the address: http://localhost:8080/restaurant/
+
 REST API
 ==
 
