@@ -72,12 +72,12 @@
                         <systemProperties>
                             <file.encoding>UTF-8</file.encoding>
                         </systemProperties>
-                        <dependencies>
-                            <dependency>
-                                <groupId>ru.javawebinar</groupId>
-                                <artifactId>restaurant</artifactId>
-                            </dependency>
-                        </dependencies>
+<!--                        <dependencies>-->
+<!--                            <dependency>-->
+<!--                                <groupId>ru.javawebinar</groupId>-->
+<!--                                <artifactId>restaurant</artifactId>-->
+<!--                            </dependency>-->
+<!--                        </dependencies>-->
                     </container>
                     <configuration>
                         <configfiles>
