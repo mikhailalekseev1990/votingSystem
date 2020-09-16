@@ -27,7 +27,7 @@ The user of the application can select a role(user, restaurant_admin) during reg
 
 Running the application
 ==
-Clone application or download and unzip zip-archive from github  <a href="https://github.com/mikhailalekseev1990/votingSystem>voting system</a>.
+Clone application or download and unzip zip-archive from github: https://github.com/mikhailalekseev1990/votingSystem.
 In the terminal, go to the folder with the application. 
 Run the command "mvn clean package".
 After message "BUILD SUCCESS" run command "mvn cargo:run". 
