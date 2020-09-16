@@ -74,8 +74,8 @@
                         </systemProperties>
                         <dependencies>
                             <dependency>
-                                <groupId>org.hsqldb</groupId>
-                                <artifactId>hsql</artifactId>
+                                <groupId>ru.javawebinar</groupId>
+                                <artifactId>restaurant</artifactId>
                             </dependency>
                         </dependencies>
                     </container>
