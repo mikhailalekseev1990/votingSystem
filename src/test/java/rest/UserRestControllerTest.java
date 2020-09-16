@@ -81,7 +81,7 @@ public class UserRestControllerTest extends AbstractControllerTest {
                 .content(JsonUtil.writeValue(updated))
                 .with(userHttpBasic(ADMIN)))
                 .andExpect(status().isNoContent());
-        USER_MATCHER.assertMatch(userRepository.get(RestaurantTestData.USER_ID), updated);
+        USER_MATCHER.assertMatch(userRepository.get(USER_ID), updated);
 
     }
 

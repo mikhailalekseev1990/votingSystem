@@ -19,6 +19,7 @@ import static org.junit.Assert.assertTrue;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
 import static testData.DishTestData.*;
 import static testData.RestaurantTestData.*;
+import static testData.UserTestData.NOT_FOUND;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",

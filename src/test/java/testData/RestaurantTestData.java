@@ -19,9 +19,6 @@ public class RestaurantTestData {
     public static final int RESTAURANT_ID_1 = START_SEQ + 5;
     public static final int RESTAURANT_ID_2 = RESTAURANT_ID_1 +1;
     public static final int RESTAURANT_ID_3 = RESTAURANT_ID_1 +2;
-    public static final int NOT_FOUND = 10;
-    public static final int ADMIN_ID = 100000;
-    public static final int USER_ID = 100001;
     public static final int RESTAURANT1_ADMIN_ID = 100002;
     public static final int RESTAURANT2_ADMIN_ID = RESTAURANT1_ADMIN_ID+1;
     public static final int RESTAURANT3_ADMIN_ID = RESTAURANT1_ADMIN_ID+2;

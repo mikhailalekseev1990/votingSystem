@@ -17,7 +17,6 @@ import java.util.*;
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 @Getter
 @Setter
-//@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
 public class User extends AbstractBaseEntity {
 
     @NotBlank
@@ -54,7 +53,7 @@ public class User extends AbstractBaseEntity {
     @NotNull
     private int vote_restaurant_id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @OrderBy("id")
     private List<Restaurant> restaurants;
 

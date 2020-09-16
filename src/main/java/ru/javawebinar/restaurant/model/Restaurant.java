@@ -15,7 +15,6 @@ import java.util.List;
 @Table(name = "restaurants")
 @Getter
 @Setter
-//@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
 public class Restaurant extends AbstractBaseEntity{
 
     @Column(name = "name", unique = true, nullable = false)
@@ -29,7 +28,7 @@ public class Restaurant extends AbstractBaseEntity{
     @JsonIgnore
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")//, cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OrderBy("id")
     private List<Dish> dishes;
 

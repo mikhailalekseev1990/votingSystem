@@ -16,7 +16,6 @@ import javax.validation.constraints.Size;
 @Table(name = "menu")
 @Getter
 @Setter
-//@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
 public class Dish extends AbstractBaseEntity {
 
     @NotBlank

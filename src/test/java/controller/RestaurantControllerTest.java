@@ -17,6 +17,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static ru.javawebinar.restaurant.Utils.ValidationUtil.checkNotFoundWithId;
 import static testData.RestaurantTestData.*;
+import static testData.UserTestData.*;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",

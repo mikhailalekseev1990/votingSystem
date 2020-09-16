@@ -28,13 +28,6 @@
               p:url="${database.url}"
               p:username="${database.username}"
               p:password="${database.password}"/>
-<!--    </beans>-->
-
-<!--    <context:property-placeholder location="classpath:DB/postgres.properties" system-properties-mode="OVERRIDE"/>-->
-
-<!--    <bean class="org.springframework.beans.factory.config.MethodInvokingBean">-->
-<!--        <property name="staticMethod" value="org.slf4j.bridge.SLF4JBridgeHandler.install" />-->
-<!--    </bean>-->
 
     <context:component-scan base-package="ru.javawebinar.restaurant.repository.datajpa"/>
     <jpa:repositories base-package="ru.javawebinar.restaurant.repository.datajpa"/>
@@ -43,15 +36,6 @@
         <jdbc:script location="${jdbc.initLocation}"/>
         <jdbc:script encoding="utf-8" location="classpath:DB/populateDB.sql"/>
     </jdbc:initialize-database>
-
-<!--    &lt;!&ndash;no pooling&ndash;&gt;-->
-<!--    <bean id="dataSource"-->
-<!--          class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-<!--        <property name="driverClassName" value="${database.driverClassName}"/>-->
-<!--        <property name="url" value="${database.url}"/>-->
-<!--        <property name="username" value="${database.username}"/>-->
-<!--        <property name="password" value="${database.password}"/>-->
-<!--    </bean>-->
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource"
