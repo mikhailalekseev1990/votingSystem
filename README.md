@@ -21,6 +21,8 @@ user - regular user (user can vote on restaurant and see all restaurants with me
 restaurant_admin - restaurant's administrator(restaurant_admin can create/update/delete menu/restaurant, belonging himself)
 admin - user's administrator(admin can see all users and delete user).
 
+The data on the choice of the restaurant and the voting time are stored in the corresponding user fields.
+
 The user of the application can select a role(user, restaurant_admin) during registration.
 
 REST API
